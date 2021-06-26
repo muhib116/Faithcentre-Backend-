@@ -1,0 +1,80 @@
+form {
+  margin: 24px 0;
+}
+
+input,
+textarea,
+[contenteditable] {
+  caret-color: #22A565;
+}
+
+.form_control {
+  display: block;
+  width: 100%;
+  padding: 8px 8px;
+  border: 0.5px solid rgba(0, 0, 0, 0.14);
+  background: rgba(0, 0, 0, 0);
+  margin-bottom: 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  overflow: auto;
+}
+.form_control:hover, .form_control:focus {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+textarea.form_control {
+  min-height: 100px;
+}
+
+.form_control[type=color],
+.form_control[type=submit],
+.form_control[type=reset],
+.form_control[type=button],
+.form_control[type=radio],
+.form_control[type=checkbox] {
+  display: initial;
+  width: auto;
+  background: initial;
+  padding: initial;
+}
+.form_control[type=color]:hover, .form_control[type=color]:focus,
+.form_control[type=submit]:hover,
+.form_control[type=submit]:focus,
+.form_control[type=reset]:hover,
+.form_control[type=reset]:focus,
+.form_control[type=button]:hover,
+.form_control[type=button]:focus,
+.form_control[type=radio]:hover,
+.form_control[type=radio]:focus,
+.form_control[type=checkbox]:hover,
+.form_control[type=checkbox]:focus {
+  box-shadow: none;
+}
+
+.form_control[type=color] {
+  min-width: 50px;
+  padding: 0 3px;
+  min-height: 30px;
+}
+
+label {
+  font-size: 16px;
+}
+
+.form_horizontal {
+  display: flex;
+  align-items: center;
+}
+.form_horizontal > label {
+  padding-right: 8px;
+}
+
+@media only screen and (max-width: 576px) {
+  label {
+    font-size: 13px;
+  }
+}
+
+/*# sourceMappingURL=form.css.map */

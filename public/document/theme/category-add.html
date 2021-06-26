@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Category add</title>
+        <!-- google font -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600" rel="stylesheet">
+        <!-- icons -->
+        <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
+        <!-- bootstrap tagsinput -->
+        <link rel="stylesheet" href="vendors/input-tags/bootstrap-tagsinput.css">
+        <!-- include style -->
+        <link rel="stylesheet" href="css/master.css">
+    </head>
+    <body>
+
+        <section class="wrapper" data-menu="category" data-submenu="category-list">
+            <!-- aside content start -->
+            <aside class="column aside">
+                <div class="brand">
+                    <span title="Company name">Company name</span>
+                    <a href="#" id="aside-close">
+                        <i class="icon ion-ios-close io-36"></i>
+                    </a>
+                </div>
+
+                <!-- aside nav start -->
+                <nav class="aside-nav">
+                    <h6>Bcd navigation</h6>
+                    <ul>
+                        <!-- dashboard -->
+                        <li id="dashboard">
+                            <a href="dashboard.html">
+                                <i class="icon ion-ios-speedometer"></i>
+                                <span title="Dashboard">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <!-- email -->
+                        <li id="email">
+                            <a href="email.html">
+                                <i class="icon ion-ios-mail"></i>
+                                <span title="Email">Email</span>
+                                <span class="badge float-right">9</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6>Job Module</h6>
+                    <ul>
+                        <!-- job category -->
+                        <li id="category" class="dropdown">
+                            <a href="#">
+                                <i class="icon ion-ios-list"></i>
+                                <span title="Category">Category</span>
+                                <span class="float-right">
+                                    <i class="icon ion-ios-arrow-forward right"></i>
+                                    <i class="icon ion-ios-arrow-down down"></i>
+                                </span>
+                            </a>
+                            <ul>
+                                <li id="category-list"><a href="category-list.html" title="Records">Records</a></li>
+                                <li id="category-add"><a href="" title="Create new">Create new</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- subcategory -->
+                        <li id="sub-category" class="dropdown">
+                            <a href="#">
+                                <i class="icon ion-ios-git-merge"></i>
+                                <span title="Subcategory">Subcategory</span>
+                                <span class="float-right">
+                                    <i class="icon ion-ios-arrow-forward right"></i>
+                                    <i class="icon ion-ios-arrow-down down"></i>
+                                </span>
+                            </a>
+                            <ul>
+                                <li id="sub-category-list"><a href="sub-category-list.html" title="Records">Records</a></li>
+                                <li id="sub-category-add"><a href="sub-category-add.html" title="Create new">Create new</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- pages -->
+                        <li id="pages" class="dropdown">
+                            <a href="#">
+                                <i class="icon ion-ios-clipboard"></i>
+                                <span title="Pages">Pages</span>
+                                <span class="float-right">
+                                    <i class="icon ion-ios-arrow-forward right"></i>
+                                    <i class="icon ion-ios-arrow-down down"></i>
+                                </span>
+                            </a>
+                            <ul>
+                                <li id="about-mydatalist"><a href="#" title="About My data list">About My data list</a></li>
+                                <li id="faq"><a href="#" title="Faq">Faq</a></li>
+                                <li id="privacy-policy"><a href="#" title="Privacy policy">Privacy policy</a></li>
+                                <li id="disclaimer"><a href="#" title="Disclaimer - Terms and conditions">Disclaimer - Terms and conditions</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h6>Your Stuff</h6>
+                    <ul>
+                        <!-- analysis tools -->
+                        <li id="analysis-tools">
+                            <a href="analysis-tools.html">
+                                <i class="icon ion-ios-analytics"></i>
+                                <span title="Analysis tools">Analysis tools</span>
+                            </a>
+                        </li>
+
+                        <!-- sitemap -->
+                        <li id="sitemap">
+                            <a href="index.html">
+                                <i class="icon ion-ios-map"></i>
+                                <span title="Site map">Site map</span>
+                            </a>
+                        </li>
+
+                        <!-- profile -->
+                        <li id="profile">
+                            <a href="profile.html">
+                                <i class="icon ion-ios-contact"></i>
+                                <span title="Profile">Profile</span>
+                                <span class="badge float-right">30%</span>
+                            </a>
+                        </li>
+
+                        <!-- settings -->
+                        <li id="settings">
+                            <a href="#">
+                                <i class="icon ion-ios-settings"></i>
+                                <span title="Settings">Settings</span>
+                            </a>
+                        </li>
+
+                        <!-- document -->
+                        <li id="documents">
+                            <a href="#">
+                                <i class="icon ion-ios-document"></i>
+                                <span title="Documents">Documents</span>
+                                <span class="badge float-right">10</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <!-- aside content end -->
+
+
+
+            <!-- right bar -->
+            <div class="right-bar">
+                <div class="title">
+                    <span title="Settings">Settings</span>
+                    <a href="#" class="settings">
+                        <i class="ion-android-close io-24"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- right bar -->
+
+
+
+            <!-- body section start -->
+            <div class="column body">
+                <!-- body nav start -->
+                <nav class="main-nav">
+                    <ul class="float-left">
+                        <li class="user-dropdown">
+                            <a href="#" id="aside-toggle">
+                                <i class="icon ion-ios-menu io-23"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="float-right">
+                        <!-- notifications -->
+                        <li class="user-dropdown">
+                            <a href="#" class="menu-button">
+                                <i class="icon ion-ios-notifications io-21"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="head">
+                                    <a href="#">
+                                        <h6>You have 2 notifications</h6>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Awesome aminmate.css</span>
+                                        <small>10 minit ago</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Awesome aminmate.css</span>
+                                        <small>10 minit ago</small>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- settings -->
+                        <li class="user-dropdown">
+                            <a href="#" class="settings">
+                                <i class="icon ion-ios-settings io-21"></i>
+                            </a>
+                        </li>
+
+                        <!-- profile -->
+                        <li class="user-dropdown">
+                            <a href="#" class="menu-button">
+                                <img src="images/avatars/user.png" alt="">
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="head">
+                                    <a href="#">
+                                        <h6>Username</h6>
+                                        <small>example@gmail.com</small>
+                                    </a>
+                                </li>
+                                <li><a href="#">Settings</a></li>
+                                <li>
+                                    <a href="#">
+                                        <span>Profile</span>
+                                        <span class="badge float-right">30%</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- body nav end -->
+
+
+                <!-- body container start -->
+                <div class="body-container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- body header start -->
+                            <header class="body-header">
+                                <div class="container">
+                                    <h3>Corporate job create</h3>
+                                </div>
+                            </header>
+                            <!-- body header end -->
+
+
+                            <!-- body content start -->
+                            <div class="body-content">
+                                <div class="container">
+                                    <div class="tabs-form">
+                                        <nav class="nav nav-tabs">
+                                            <a class="nav-item nav-link active" data-toggle="tab" href="#create-job-post"><span>1</span> First box</a>
+                                            <a class="nav-item nav-link" data-toggle="tab" href="#second-box"><span>2</span> Second box</a>
+                                            <a class="nav-item nav-link" data-toggle="tab" href="#third-box"><span>3</span> Third box</a>
+                                        </nav>
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" id="create-job-post">
+                                                <!-- form content -->
+                                                <form action="#" method="post">
+                                                    <div class="form-row">
+                                                        <!-- job title -->
+                                                        <div class="form-group col-12 required">
+                                                            <label for="job-title">Job title</label>
+                                                            <input type="text" name="job title" id="job-title" placeholder="Title" class="form-control" required>
+                                                        </div>
+                                                        <!-- sub title -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label for="sub-title">Sub title</label>
+                                                            <input type="text" name="sub title" id="sub-title" placeholder="Title" class="form-control" required>
+                                                        </div>
+                                                        <!-- company name -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label>Company name</label>
+                                                            <select class="form-control">
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">Government</option>
+                                                                <option value="">Semi Government</option>
+                                                                <option value="">NGO</option>
+                                                                <option value="">Private Firm/Company</option>
+                                                                <option value="">International Agencies</option>
+                                                                <option value="">Others</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- job category -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label>Job category</label>
+                                                            <select class="form-control" required>
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">Government</option>
+                                                                <option value="">Semi Government</option>
+                                                                <option value="">NGO</option>
+                                                                <option value="">Private Firm/Company</option>
+                                                                <option value="">International Agencies</option>
+                                                                <option value="">Others</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- subcategory -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label>Subcategory</label>
+                                                            <select class="form-control" required>
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">Government</option>
+                                                                <option value="">Semi Government</option>
+                                                                <option value="">NGO</option>
+                                                                <option value="">Private Firm/Company</option>
+                                                                <option value="">International Agencies</option>
+                                                                <option value="">Others</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- job level -->
+                                                        <div class="form-group col-12 required">
+                                                            <label>Job Level</label>
+                                                            <select class="form-control" required>
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">Entry level</option>
+                                                                <option value="">Mid level</option>
+                                                                <option value="">Top level</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-12">
+                                                            <!-- add location -->
+                                                            <label>Job location</label>
+                                                            <div class="form-group">
+                                                                <input type="text" name="title" value="Dhaka" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <!-- location select -->
+                                                                <div class="form-group col-md-10 col-8 required">
+                                                                    <input type="text" name="title" id="job-location" list="location-list" class="form-control" placeholder="Add Location" required>
+                                                                    <datalist id="location-list">
+                                                                        <option value="">Dhaka</option>
+                                                                        <option value="">Mymensingh</option>
+                                                                        <option value="">Khulna</option>
+                                                                        <option value="">Comilla</option>
+                                                                        <option value="">Haluaght</option>
+                                                                        <option value="">Jamalpur</option>
+                                                                    </datalist>
+                                                                </div>
+                                                                <!-- button -->
+                                                                <div class="form-group text-right col-md-2 col-4">
+                                                                    <button type="button" role="button" class="btn submit-btn mt-0"><i class="ion-plus-round"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- button -->
+                                                        <div class="form-group col-12">
+                                                            <button type="button" class="btn submit-btn">Previous</button>
+                                                            <button type="button" class="btn reset-btn">Next</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="second-box">
+                                                <!-- form content -->
+                                                <form action="#" method="post">
+                                                    <div class="form-row">
+                                                        <div class="col-12">
+                                                            <!-- position/designation/post -->
+                                                            <label for="position-select">Position/Designation/Post</label>
+                                                            <div class="form-group">
+                                                                <input type="text" name="title" value="Dhaka" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <!-- position select -->
+                                                                <div class="form-group col-md-10 col-8 required">
+                                                                    <input type="text" id="position-select" name="position" list="position-list" class="form-control" placeholder="Add Position" required>
+                                                                    <datalist id="position-list">
+                                                                        <option value="">Dhaka</option>
+                                                                        <option value="">Mymensingh</option>
+                                                                        <option value="">Khulna</option>
+                                                                        <option value="">Comilla</option>
+                                                                        <option value="">Haluaght</option>
+                                                                        <option value="">Jamalpur</option>
+                                                                    </datalist>
+                                                                </div>
+                                                                <!-- button -->
+                                                                <div class="form-group text-right col-md-2 col-4">
+                                                                    <button type="button" role="button" class="btn submit-btn mt-0"><i class="ion-plus-round"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- organization type -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label>Organization type</label>
+                                                            <select class="form-control" required>
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">Government</option>
+                                                                <option value="">Private/Corporate</option>
+                                                                <option value="">Bank</option>
+                                                                <option value="">BCS</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- vacancy -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="vacancy">Vacancy</label>
+                                                            <input type="text" name="vacancy" id="vacancy" placeholder="Vacancy" class="form-control">
+                                                        </div>
+                                                        <!-- employment-status -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label>Employment status</label>
+                                                            <select class="form-control" required>
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">Full-Time</option>
+                                                                <option value="">Part-Time</option>
+                                                                <option value="">Internship</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- experience -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label>Experience</label>
+                                                            <select class="form-control" required>
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">2 - 3</option>
+                                                                <option value="">3 - 4</option>
+                                                                <option value="">4 - 5</option>
+                                                                <option value="">Expert</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- age -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="age">Age limit</label>
+                                                            <input type="text" name="age" id="age" placeholder="Age" class="form-control">
+                                                        </div>
+                                                        <!-- educational qualification (list/description) -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="educational-qualification">Educational qualification (list/description)</label>
+                                                            <input type="text" name="educational-qualification" id="educational-qualification" placeholder="Qualification" class="form-control">
+                                                        </div>
+                                                        <!-- salary -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label>Salary</label>
+                                                            <select class="form-control">
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">Negotiable</option>
+                                                                <option value="">30000 - 40000</option>
+                                                                <option value="">Fixed</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- gender -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label>Gender</label>
+                                                            <select class="form-control" required>
+                                                                <option selected disabled value="">Select</option>
+                                                                <option value="">Male</option>
+                                                                <option value="">Female</option>
+                                                                <option value="">Male or, Female both</option>
+                                                                <option value="">Others</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- button -->
+                                                        <div class="form-group col-12">
+                                                            <button type="button" class="btn submit-btn">Previous</button>
+                                                            <button type="button" class="btn reset-btn">Next</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="third-box">
+                                                <!-- form content -->
+                                                <form action="#" method="post">
+                                                    <div class="form-row">
+                                                        <!-- published -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label for="published">Published date (Month/Day/Year)</label>
+                                                            <input type="date" name="published" id="published" class="form-control" required>
+                                                        </div>
+                                                        <!-- deadline -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label for="deadline">Application deadline (Month/Day/Year)</label>
+                                                            <input type="date" name="deadline" id="deadline" class="form-control" required>
+                                                        </div>
+                                                        <!-- application-fee -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="application-fee">Application fee</label>
+                                                            <input type="text" name="application-fee" id="application-fee" placeholder="Amount" class="form-control">
+                                                        </div>
+                                                        <!-- source -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label for="source">Source</label>
+                                                            <input type="text" name="source" id="source" placeholder="Source" class="form-control" required>
+                                                        </div>
+                                                        <!-- apply online -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="apply-online">Job apply online</label>
+                                                            <input type="text" name="apply-online" id="apply-online" placeholder="URL" class="form-control">
+                                                        </div>
+                                                        <!-- apply instructions -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="apply-instructions">Apply Instructions</label>
+                                                            <input type="text" name="apply-instructions" id="apply-instructions" placeholder="Apply details" class="form-control">
+                                                        </div>
+                                                        <!-- attachment -->
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="attachment">Attachment (File)</label>
+                                                            <input type="file" name="attachment" id="attachment" class="form-control">
+                                                        </div>
+                                                        <!-- job tag -->
+                                                        <div class="form-group col-sm-6 required">
+                                                            <label for="job-tag">Job tag</label>
+                                                            <input type="text" name="job tag" id="job-tag" value="tag" data-role="tagsinput" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-row">
+                                                                <!-- popular job -->
+                                                                <div class="form-group col-sm-6 required">
+                                                                    <label>Popular job</label>
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <input type="radio" name="popular job" id="popular-job-yes">
+                                                                            <label for="popular-job-yes">Yes</label>
+                                                                        </div>
+                                                                        <div class="col-4">
+                                                                            <input type="radio" name="popular job" id="popular-job-no">
+                                                                            <label for="popular-job-no">No</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- admit card notification -->
+                                                                <div class="form-group col-sm-6 required">
+                                                                    <label>Admit card notification</label>
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <input type="radio" name="notification" id="notification-yes">
+                                                                            <label for="notification-yes">Yes</label>
+                                                                        </div>
+                                                                        <div class="col-4">
+                                                                            <input type="radio" name="notification" id="notification-no">
+                                                                            <label for="notification-no">No</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- description -->
+                                                        <div class="form-group col-md-12 required">
+                                                            <label for="description">Description</label>
+                                                            <textarea name="description" id="description" class="form-control"></textarea>
+                                                        </div>
+                                                        <!-- featured image -->
+                                                        <div class="form-group col-12 required">
+                                                            <label for="featured-image">Featured Image (File)</label>
+                                                            <input type="file" name="featured image" id="featured-image" class="form-control" required>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-row">
+                                                                <!-- meta-title -->
+                                                                <div class="form-group col-sm-6">
+                                                                    <label for="meta-title">Meta title</label>
+                                                                    <textarea class="form-control" id="meta-title" placeholder="70 Characters max" rows="3" maxlength=70></textarea>
+                                                                </div>
+                                                                <!-- meta-description -->
+                                                                <div class="form-group col-sm-6">
+                                                                    <label for="meta-description">Meta description</label>
+                                                                    <textarea class="form-control" id="meta-description" placeholder="160 Characters max" rows="3" maxlength=160></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- meta keyword -->
+                                                        <div class="form-group col-12">
+                                                            <label for="meta-keyword">Meta keyword</label>
+                                                            <input type="text" name="Job Search" id="meta-keyword" value="tag" data-role="tagsinput" class="form-control">
+                                                        </div>
+                                                        <!-- button -->
+                                                        <div class="form-group col-12">
+                                                            <button type="submit" class="btn submit-btn">Publish</button>
+                                                            <button type="reset" class="btn reset-btn">Reset</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- body content end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- body container end -->
+            </div>
+            <!-- body section end -->
+        </section>
+        <div class="wrapper-background"></div>
+
+
+        <!-- jQuery js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <!-- niceScroll js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+        <!-- bootstrap tagsinput -->
+        <script src="vendors/input-tags/bootstrap-tagsinput.js"></script>
+        <!-- ckeditor4 -->
+        <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+        <!-- include js -->
+        <script src="js/app.js"></script>
+        <script>
+            // https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
+            $("#tags").val();
+            $("#tags").tagsinput('items');
+
+            // ckeditor
+            CKEDITOR.replace( 'description' );
+        </script>
+    </body>
+</html>

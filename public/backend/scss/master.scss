@@ -1,0 +1,57 @@
+:root{
+    font-size: 16px;
+    @media all and (max-width: 768px){
+        font-size: 14px;
+    }
+    @media all and (max-width: 500px){
+        font-size: 12px;
+    }
+}
+
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Nunito|Open+Sans&display=swap');
+
+body{
+    font-family: 'Nunito','Open Sans';
+
+    &.mode.dark{
+        filter:invert(0.85) !important;
+
+        .chart_container{
+            filter:invert(1) !important;
+        }
+        *{
+            font-weight: bold !important;
+            font-size: 1.2rem;
+        }
+        
+
+        input[type=checkbox],
+        input[type=radio],
+        .privilege_img,
+        .alert,
+        .btn,
+        .badge,
+        .side_bar_toggle.active,
+        input[type=submit],
+        button,
+        svg{
+            filter: invert(1) !important;
+        }
+        img{
+            filter: invert(1) !important;
+        }
+    }
+
+}
+
+@import "color.scss";
+@import "inc/main_content.scss";
+@import "inc/left_side.scss";
+@import "inc/right_side.scss";
+@import "inc/dashboard.scss";

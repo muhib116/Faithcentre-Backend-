@@ -1,0 +1,325 @@
+/**
+/*list of basic btn 
+/*--------------------------
+btn_default
+btn_success
+btn_warning
+btn_primary
+btn_secondary
+btn_info
+btn_danger
+btn_light_green
+btn_pink
+btn_purple
+btn_deep_purple
+btn_dark_green
+btn_yellow
+btn_grey
+btn_brown
+btn_deep_orange
+btn_light_blue
+btn_cyan
+
+
+/*list of gradient btn 
+/*--------------------------
+btn_yellow_gradient
+btn_purple_gradient
+btn_blue_gradient
+btn_aqua_gradient
+btn_success_gradient
+btn_danger_gradient
+btn_warning_gradient
+
+
+/*list of outline btn 
+/*--------------------------
+btn_outline_default
+btn_outline_success
+btn_outline_warning
+btn_outline_primary
+btn_outline_secondary
+btn_outline_info
+btn_outline_danger
+btn_outline_light_green
+btn_outline_pink
+btn_outline_purple
+btn_outline_deep_purple
+btn_outline_dark_green
+btn_outline_yellow
+btn_outline_grey
+btn_outline_brown
+btn_outline_deep_orange
+btn_outline_light_blue
+btn_outline_cyan
+
+example:
+-------------------
+<button class="btn btn_*">BTN Name</button>
+*/
+.btn{
+	&.icon{
+	    padding: 10px 12px !important;
+	    font-size: 14px !important;
+	}
+
+
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+    padding: .84rem 2.14rem !important;
+    font-size: .81rem !important;
+    transition: all .15s ease-in-out !important;
+    margin: .375rem !important;
+    border: 0 !important;
+    border-radius: .125rem !important;
+    text-transform: uppercase !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    color: inherit !important;
+
+
+	&:not(:disabled){
+	    cursor: pointer !important;
+	    
+	    &:active, &:focus, &:hover{
+	    	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.30), 0 6px 10px 0 rgba(0, 0, 0, 0.12) !important;
+	    	outline: none !important;
+	    }
+	    &:active{transform:scale(0.9) !important;}
+	}
+	&:disabled{
+		opacity: 0.7 !important;
+		cursor: not-allowed !important;
+	}
+
+	/*basic buttons start*/
+	&.btn_default{
+		background: $default_color !important;
+		color:#fff !important;
+	}
+	&.btn_success{
+		background: $success_color !important;
+		color:#fff !important;
+	}
+	&.btn_warning{
+		background: $warning_color !important;
+		color:#fff !important;
+	}
+	&.btn_primary{
+		background: $primary_color !important;
+		color:#fff !important;
+	}
+	&.btn_secondary{
+		background: $secondary_color !important;
+		color:#fff !important;
+	}
+	&.btn_info{
+		background: $info_color !important;
+		color:#fff !important;
+	}
+	&.btn_danger{
+		background: $danger_color !important;
+		color:#fff !important;
+	}
+	&.btn_light_green{
+		background: $light_green_color !important;
+		color:#fff !important;
+	}
+	&.btn_pink{
+		background: $pink_color !important;
+		color:#fff !important;
+	}
+	&.btn_purple{
+		background: $purple_color !important;
+		color:#fff !important;
+	}
+	&.btn_deep_purple{
+		background: $deep_purple_color !important;
+		color:#fff !important;
+	}
+	&.btn_dark_green{
+		background: $dark_green_color !important;
+		color:#fff !important;
+	}
+	&.btn_yellow{
+		background: $yellow_color !important;
+		color:#fff !important;
+	}
+	&.btn_grey{
+		background: $grey_color !important;
+		color:#fff !important;
+	}
+	&.btn_brown{
+		background: $brown_color !important;
+		color:#fff !important;
+	}
+	&.btn_deep_orange{
+		background: $deep_orange_color !important;
+		color:#fff !important;
+	}
+	&.btn_light_blue{
+		background: $light_blue_color !important;
+		color:#fff !important;
+	}
+	&.btn_cyan{
+		background: $cyan_color !important;
+		color:#fff !important;
+	}
+	/*basic buttons end*/
+
+
+	/*outline buttons start*/
+	&.btn_outline_default{
+		border: 2px solid $default_color !important;
+		background: transparent !important;
+		color:$default_color !important;
+	}
+	&.btn_outline_success{
+		border: 2px solid $success_color !important;
+		background: transparent !important;
+		color:$success_color !important;
+	}
+	&.btn_outline_warning{
+		border: 2px solid $warning_color !important;
+		background: transparent !important;
+		color:$warning_color !important;
+	}
+	&.btn_outline_primary{
+		border: 2px solid $primary_color !important;
+		background: transparent !important;
+		color:$primary_color !important;
+	}
+	&.btn_outline_secondary{
+		border: 2px solid $secondary_color !important;
+		background: transparent !important;
+		color:$secondary_color !important;
+	}
+	&.btn_outline_info{
+		border: 2px solid $info_color !important;
+		background: transparent !important;
+		color:$info_color !important;
+	}
+	&.btn_outline_danger{
+		border: 2px solid $danger_color !important;
+		background: transparent !important;
+		color:$danger_color !important;
+	}
+	&.btn_outline_light_green{
+		border: 2px solid $light_green_color !important;
+		background: transparent !important;
+		color:$light_green_color !important;
+	}
+	&.btn_outline_pink{
+		border: 2px solid $pink_color !important;
+		background: transparent !important;
+		color:$pink_color !important;
+	}
+	&.btn_outline_purple{
+		border: 2px solid $purple_color !important;
+		background: transparent !important;
+		color:$purple_color !important;
+	}
+	&.btn_outline_deep_purple{
+		border: 2px solid $deep_purple_color !important;
+		background: transparent !important;
+		color:$deep_purple_color !important;
+	}
+	&.btn_outline_dark_green{
+		border: 2px solid $dark_green_color !important;
+		background: transparent !important;
+		color:$dark_green_color !important;
+	}
+	&.btn_outline_yellow{
+		border: 2px solid $yellow_color !important;
+		background: transparent !important;
+		color:$yellow_color !important;
+	}
+	&.btn_outline_grey{
+		border: 2px solid $grey_color !important;
+		background: transparent !important;
+		color:$grey_color !important;
+	}
+	&.btn_outline_brown{
+		border: 2px solid $brown_color !important;
+		background: transparent !important;
+		color:$brown_color !important;
+	}
+	&.btn_outline_deep_orange{
+		border: 2px solid $deep_orange_color !important;
+		background: transparent !important;
+		color:$deep_orange_color !important;
+	}
+	&.btn_outline_light_blue{
+		border: 2px solid $light_blue_color !important;
+		background: transparent !important;
+		color:$light_blue_color !important;
+	}
+	&.btn_outline_cyan{
+		border: 2px solid $cyan_color !important;
+		background: transparent !important;
+		color:$cyan_color !important;
+	}
+	/*outline buttons end*/
+
+
+
+	/*Gradient buttons start*/
+	&.btn_yellow_gradient{
+		background: $yellow_gradient_bg_color !important;
+		color: #fff !important;
+	}
+	&.btn_purple_gradient{
+		background: $purple_gradient_bg_color !important;
+		color: #fff !important;
+	}
+	&.btn_blue_gradient{
+		background: $blue_gradient_bg_color !important;
+		color: #fff !important;
+	}
+	&.btn_aqua_gradient{
+		background: $aqua_gradient_bg_color !important;
+		color: #fff !important;
+	}
+	&.btn_success_gradient{
+		background: $success_gradient_bg_color !important;
+		color: #fff !important;
+	}
+	&.btn_danger_gradient{
+		background: $danger_gradient_bg_color !important;
+		color: #fff !important;
+	}
+	&.btn_warning_gradient{
+		background: $warning_gradient_bg_color !important;
+		color: #fff !important;
+	}
+	/*Gradient buttons end*/
+
+
+	&.btn_rounded_1{border-radius: 20%;}
+	&.btn_rounded_2{border-radius: 10em;}
+}
+
+
+
+
+@media only screen and (max-width: 576px){
+
+	.btn{
+		&.icon{
+		    padding: 8px 10px !important;
+		    font-size: 13px !important;
+		}
+
+
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+	    padding: .70rem 2rem !important;
+	    font-size: .71rem !important;
+	    transition: all .15s ease-in-out !important;
+	    margin: .300rem !important;
+	    border: 0 !important;
+	    border-radius: .100rem !important;
+	    text-transform: uppercase !important;
+	    white-space: normal !important;
+	    word-wrap: break-word !important;
+	    color: inherit !important;
+	}
+}

@@ -1,0 +1,109 @@
+@import "partials/second_header";
+
+/* contact section start */
+.contact-section {
+    padding: 95px 0 54px;
+    background: #fff;
+    a {
+        text-decoration: underline;
+        &:hover {text-decoration: none;}
+    }
+    .contact {
+        .address,
+        article {margin-bottom: 35px;}
+        h2 {
+            margin: 0 0 12px;
+            color: #000;
+            font-weight: 600;
+        }
+        p,a {margin-bottom: 5px;}
+        a {
+            color: #000;
+            &:hover {color: #0B3A22;}
+        }
+    }
+
+    .form-title {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0B3A22;
+            span {color: #000;}
+        }
+    }
+
+    h4 {margin: 20px 0 12px;}
+
+    .form-group {overflow: hidden;}
+    .required {
+        label {
+            margin-bottom: 0;
+            width: 100%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            &:after {
+                content: " *";
+                color: #0B3A22;
+            }
+        }
+    }
+    .request-form {
+        h2 {
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        input[type=text],
+        input[type=email],
+        input[type=date],
+        input[type=file],
+        select {
+            background: none;
+            border-radius: 0;
+            height: 38px;
+            line-height: 38px;
+            box-shadow: none;
+            border-color: #ddd;
+            color: #000;
+            &:focus {
+                box-shadow: none;
+                border-color: rgba(#0B3A22, .5);
+            }
+        }
+        input[type=file] {
+            line-height: 30px !important;
+            padding: 0 !important;
+        }
+        textarea {
+            background: none;
+            border-radius: 0;
+            border-color: #ddd;
+            box-shadow: none;
+            resize: vertical;
+            &:focus {
+                box-shadow: none;
+                border-color: rgba(#0B3A22, .5);
+            }
+        }
+        button[type=submit] {
+            border-radius: 0;
+            background: #0B3A22;
+            color: #FFF;
+            padding: 10px 25px;
+            transition: all .2s;
+            border: none;
+            &:hover,
+            &:focus {
+                background: darken(#0B3A22, 7%);
+                outline: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 576px) {
+	.contact-section {padding: 65px 0 45px;}
+}
+/* contact section end */

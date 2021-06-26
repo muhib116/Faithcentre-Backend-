@@ -1,0 +1,40 @@
+/*color start*/
+$default_color:#2BBBAD;
+$success_color:#00C851;
+$warning_color:#FFBB33;
+$primary_color:#4285F4;
+$secondary_color:#AA66CC;
+$info_color:#33B5E5;
+$danger_color:#FF3547;
+$light_green_color:#8BC34A;
+$pink_color:#EC407A;
+$purple_color:#8E24AA;
+$deep_purple_color:#512DA8;
+$dark_green_color:#388E3C;
+$yellow_color:#FBC02D;
+$grey_color:#78909C;
+$brown_color:#795548;
+$deep_orange_color:#FF7043;
+$light_blue_color:#82B1FF;
+$cyan_color:#00BCD4;
+/*color end*/
+
+/*gradient bg color start*/
+$yellow_gradient_bg_color  : linear-gradient(40deg, #ffd86f, #fc6262);
+$purple_gradient_bg_color  : linear-gradient(40deg, #ff6ec4, #7873f5);
+$blue_gradient_bg_color    : linear-gradient(40deg, #45cafc, #303f9f);
+$aqua_gradient_bg_color    : linear-gradient(40deg, #2096ff, #05ffa3);
+$success_gradient_bg_color : linear-gradient(40deg, #43e97b, #38f9d7);
+$danger_gradient_bg_color  : linear-gradient(40deg, #ff0844, #ffb199);
+$warning_gradient_bg_color : linear-gradient(40deg, #f83600, #f9d423);
+/*gradient bg color end*/
+
+/*gradient bg color for hover start*/
+$hover_yellow_gradient_bg_color  : linear-gradient(40deg, #ffd86f22, #fc626222);
+$hover_purple_gradient_bg_color  : linear-gradient(40deg, #ff6ec422, #7873f522);
+$hover_blue_gradient_bg_color    : linear-gradient(40deg, #45cafc22, #303f9f22);
+$hover_aqua_gradient_bg_color    : linear-gradient(40deg, #2096ff22, #05ffa322);
+$hover_success_gradient_bg_color : linear-gradient(40deg, #43e97b22, #38f9d722);
+$hover_danger_gradient_bg_color  : linear-gradient(40deg, #ff084422, #ffb19922);
+$hover_warning_gradient_bg_color : linear-gradient(40deg, #f8360022, #f9d42322);
+/*gradient bg color for hover end*/

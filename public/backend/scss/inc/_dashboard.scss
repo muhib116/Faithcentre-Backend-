@@ -1,0 +1,157 @@
+.dashboard_box_container{
+  display: grid;
+  grid-template-columns: 24.4% 24.4% 24.4% 24.4%;
+
+  @media all and (max-width: 1000px)
+  {
+    grid-template-columns: 49% 49%;
+  }
+
+  @media all and (max-width: 550px)
+  {
+    grid-template-columns: 100%;
+  }
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  .db-box{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px #0002;
+    position: relative;
+
+    &::before{
+      content: "";
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      background: #ffffff1a;
+      width: 50px;
+      height: 50px;
+      transform: rotate(45deg) translate(-50%, -50%);
+    }
+
+    &::after{
+      content: "";
+      position: absolute;
+      left: 90%;
+      top: 0;
+      background: #ffffff1a;
+      border: 1px solid #fff6;
+      width: 60px;
+      height: 60px;
+      transform: rotate(30deg) translate(-50%, -50%);
+      box-shadow: -1px -3px 11px 1px #0000002e inset;
+      border-radius: 50%;
+    }
+
+    &:nth-child(1){
+      background: linear-gradient(-45deg, #b71c1c, #AD1457);
+      box-shadow: 1px 1px 10px #b71c1c88;
+    }
+
+    &:nth-child(2){
+      background: linear-gradient(-45deg, #880E4F, #6A1B9A);
+      box-shadow: 1px 1px 10px #880E4F88;
+    }
+
+    &:nth-child(3){
+      background: linear-gradient(-45deg, #4A148C, #4527A0);
+      box-shadow: 1px 1px 10px #4A148C88;
+    }
+
+    &:nth-child(4){
+      background: linear-gradient(-45deg, #311B92, #283593);
+      box-shadow: 1px 1px 10px #311B9288;
+    }
+
+    &:nth-child(5){
+      background: linear-gradient(-45deg, #1A237E, #1565C0);
+      box-shadow: 1px 1px 10px #1A237E88;
+    }
+
+    &:nth-child(6){
+      background: linear-gradient(-45deg, #0D47A1, #0277BD);
+      box-shadow: 1px 1px 10px #0D47A188;
+    }
+
+    &:nth-child(7){
+      background: linear-gradient(-45deg, #01579B, #00838F);
+      box-shadow: 1px 1px 10px #01579B88;
+    }
+
+    &:nth-child(8){
+      background: linear-gradient(-45deg, #006064, #00695C);
+      box-shadow: 1px 1px 10px #00606488;
+    }
+
+    &:nth-child(9){
+      background: linear-gradient(-45deg, #004D40, #2E7D32);
+      box-shadow: 1px 1px 10px #004D4088;
+    }
+
+    &:nth-child(10){
+      background: linear-gradient(-45deg, #1B5E20, #558B2F);
+      box-shadow: 1px 1px 10px #1B5E2088;
+    }
+
+    &:nth-child(11){
+      background: linear-gradient(-45deg, #33691E, #9E9D24);
+      box-shadow: 1px 1px 10px #33691E88;
+    }
+
+    &:nth-child(12){
+      background: linear-gradient(-45deg, #827717, #F9A825);
+      box-shadow: 1px 1px 10px #82771788;
+    }
+    
+    &:hover{
+      box-shadow: 1px 1px 6px #b6c8d9, -1px -1px 6px  #b6c8d9;
+    }
+    
+    .icon{
+      width: 70px;
+      height: 70px;
+      min-width: 70px;
+      min-height: 70px;
+      border-radius: 50%;
+      padding: 15px;
+      box-shadow: 1px 1px 6px #00000073 inset, 2px 2px 6px #dadada55 inset;
+      background: #ffffff9e;
+      border: 1px solid #fff9;
+      img{
+        display: block;
+        width: 100%;
+      }
+
+      &+*{
+        width: 100%;
+        padding: 0 20px;
+      }
+    }
+    
+    &>div>*{
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+    
+    &>div>h3{
+      font-size: 25px;
+      color: #fff;
+    }
+    
+    &>div>small{
+      color: #ddd;
+      display: block;
+      margin: 10px 0;
+    }
+    &>div>a{
+      text-decoration: none;
+      color: #e4e4e4;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+/* Error page start */
+.error-content {
+  height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 45px 0 75px; }
+  .error-content .text-error {
+    color: #0078D7;
+    text-shadow: rgba(0, 120, 215, 0.3) 5px 1px, rgba(0, 120, 215, 0.2) 10px 3px;
+    font-size: 5.25rem;
+    line-height: 5.625rem;
+    font-weight: 700; }
+  .error-content h4 {
+    color: #fa5c7c;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0 20px; }
+  .error-content p {
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px; }
+  .error-content .btn {
+    border: none;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 15px;
+    min-width: 90px;
+    font-size: 15px;
+    color: #EFEFEF;
+    box-shadow: 0 1px 3px 0 rgba(0, 120, 215, 0.3);
+    background: #0078D7; }
+    .error-content .btn:hover {
+      background: #006abe;
+      box-shadow: 0 2px 6px 0 rgba(0, 120, 215, 0.5); }
+
+/* Error page end */
+
+/*# sourceMappingURL=error.css.map */

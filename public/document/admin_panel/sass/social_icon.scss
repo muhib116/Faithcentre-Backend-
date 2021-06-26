@@ -1,0 +1,370 @@
+a.social{
+	display: inline-block;
+	width:35px;
+	height:35px;
+	line-height:35px;
+	text-align: center;
+	font-size: 16px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	margin: 5px;
+
+	&.rounded_1{border-radius: 6px;}
+	&.rounded_2{border-radius:30%;}
+
+
+
+
+
+    &:active, &:focus, &:hover{
+    	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.30), 0 6px 10px 0 rgba(0, 0, 0, 0.12);
+    	outline: none;
+    }
+    &:active{transform:scale(0.9);}
+	
+
+	&.x1{
+		font-size: 18px;
+		width:40px;
+		height:40px;
+		line-height:40px;
+	}
+	&.x2{
+		font-size: 22px;
+		width:45px;
+		height:45px;
+		line-height:45px;
+	}
+	&.x3{
+		font-size: 24px;
+		width:50px;
+		height:50px;
+		line-height:50px;
+	}
+	&.x4{
+		font-size: 28px;
+		width:55px;
+		height:55px;
+		line-height:55px;
+	}
+	&.x5{
+		font-size: 32px;
+		width:60px;
+		height:60px;
+		line-height:60px;
+	}
+
+
+	&.facebook{
+		background: $facebook_color;
+		color:#fff;
+	}
+
+	&.youtube{
+		background: $youtube_color;
+		color:#fff;
+	}
+
+	&.twitter{
+		background: $twitter_color;
+		color:#fff;
+		text-decoration: none;
+	}
+
+	&.linkedin{
+		background: $linkedin_color;
+		color:#fff;
+		text-decoration: none;
+	}
+
+	&.skype{
+		background: $skype_color;
+		color:#fff;
+		text-decoration: none;
+	}
+
+	&.dropbox{
+		background: $dropbox_color;
+		color:#fff;
+		text-decoration: none;
+	}
+
+	&.tumblr{
+		background: $tumblr_color;
+		color:#fff;
+		text-decoration: none;
+	}
+
+	&.pinterest{
+		background: $pinterest_color;
+		color:#fff;
+	}
+
+	&.instagram{
+		background: $instagram_color;
+		color:#fff;
+	}
+
+	&.snapchat{
+		background: $snapchat_color;
+		color:#fff;
+	}
+
+
+
+
+
+
+	&.reverse{
+
+		&.facebook:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				background: $facebook_color;
+				color: #fff;
+			}
+		}
+
+		&.youtube:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				background: $youtube_color;
+				color: #fff;
+			}
+		}
+
+		&.twitter:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				color: #fff;
+				background: $twitter_color;
+			}
+		}
+
+		&.linkedin:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				color: #fff;
+				background: $linkedin_color;
+			}
+		}
+
+		&.skype:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				color:#fff;
+				background: $skype_color;
+			}
+		}
+
+		&.dropbox:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				color:#fff;
+				background: $dropbox_color;
+			}
+		}
+
+		&.tumblr:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				color: #fff;
+				background: $tumblr_color;
+			}
+		}
+
+		&.pinterest:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				color: #fff;
+				background: $pinterest_color;
+			}
+		}
+
+		&.instagram:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				color: #fff;
+				background: $instagram_color;
+			}
+		}
+
+		&.snapchat:not(.d_3){
+			color: #333;
+			background:#fff;
+			&:hover{
+				color: #fff;
+				background: $snapchat_color;
+			}
+		}
+		/**/
+
+
+		// 3d button start 
+		&.d_3{
+			text-decoration: none;
+		    position: relative;
+		    padding: 4px;
+		    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		    background: linear-gradient(0deg, #ddd, #fff);
+		    transition: 0.3s ease-in-out;
+		    width: 35px;
+		    height: 35px;
+		    font-size: 14px;
+			color: #333;
+			
+
+			&>*{
+				width: 27px;
+			    height: 27px;
+			    line-height: 27px;
+			    display: block;
+			    background: linear-gradient(0deg, #fff, #ddd);
+			    border-radius: 50%;
+			}
+
+
+			&.x1{
+				padding: 6px;
+			    font-size: 15px !important;
+			    width: 45px;
+			    height: 45px;
+			    line-height: 45px;
+	    		&>*{
+	    			width: 33px;
+				    height: 33px;
+				    line-height: 33px;
+	    		}
+			}
+			&.x2{
+				padding: 6px;
+			    font-size: 18px !important;
+				width:50px;
+				height:50px;
+				line-height:50px;
+	    		&>*{
+	    			width: 38px;
+				    height: 38px;
+				    line-height: 38px;
+	    		}
+			}
+			&.x3{
+				padding: 6px;
+			    font-size: 20px !important;
+			    width: 55px;
+			    height: 55px;
+			    line-height: 55px;
+	    		&>*{
+	    			width: 42px;
+				    height: 42px;
+				    line-height: 42px;
+	    		}
+			}
+			&.x4{
+				padding: 6px;
+			    font-size: 22px !important;
+				width:60px;
+				height:60px;
+				line-height:60px;
+	    		&>*{
+	    			width: 47px;
+				    height: 47px;
+				    line-height: 47px;
+	    		}
+			}
+			&.x5{
+				padding: 6px;
+			    font-size: 25px !important;
+				width:65px;
+				height:65px;
+				line-height:65px;
+	    		&>*{
+	    			width: 51px;
+				    height: 51px;
+				    line-height: 51px;
+	    		}
+			}
+
+
+			&.facebook{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$facebook_color;
+				}
+			}
+
+			&.youtube{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$youtube_color;
+				}
+			}
+
+			&.twitter{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$twitter_color;
+				}
+			}
+
+			&.linkedin{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$linkedin_color;
+				}
+			}
+
+			&.skype{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$skype_color;
+				}
+			}
+
+			&.dropbox{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$dropbox_color;
+				}
+			}
+
+			&.tumblr{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$tumblr_color;
+				}
+			}
+
+			&.pinterest{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$pinterest_color;
+				}
+			}
+
+			&.instagram{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$instagram_solid_color;
+				}
+			}
+
+			&.snapchat{
+				&:hover{
+					box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+					color:$snapchat_color;
+				}
+			}
+		}
+	}
+}

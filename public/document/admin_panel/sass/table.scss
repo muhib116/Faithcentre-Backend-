@@ -1,0 +1,147 @@
+table.table{
+	width: 100%;
+	border-collapse: collapse;
+	margin: 15px 0 20px;
+
+
+
+
+	tr > th, tr > td {
+		padding: 8px 10px;
+		vertical-align: middle;
+	}
+
+	
+	// table hover start
+	&.hover{tr:hover{background: #eee;}}
+	&.hover_default{tr:hover{background: rgba($default_color,0.1);}}
+	&.hover_success{tr:hover{background: rgba($success_color,0.1);}}
+	&.hover_warning{tr:hover{background: rgba($warning_color,0.1);}}
+	&.hover_primary{tr:hover{background: rgba($primary_color,0.1);}}
+	&.hover_secondary{tr:hover{background: rgba($secondary_color,0.1);}}
+	&.hover_info{tr:hover{background: rgba($info_color,0.1);}}
+	&.hover_danger{tr:hover{background: rgba($danger_color,0.1);}}
+	&.hover_light_green{tr:hover{background: rgba($light_green_color,0.1);}}
+	&.hover_pink{tr:hover{background: rgba($pink_color,0.1);}}
+	&.hover_purple{tr:hover{background: rgba($purple_color,0.1);}}
+	&.hover_deep_purple{tr:hover{background: rgba($deep_purple_color,0.1);}}
+	&.hover_dark_green{tr:hover{background: rgba($dark_green_color,0.1);}}
+	&.hover_yellow{tr:hover{background: rgba($yellow_color,0.1);}}
+	&.hover_grey{tr:hover{background: rgba($grey_color,0.1);}}
+	&.hover_brown{tr:hover{background: rgba($brown_color,0.1);}}
+	&.hover_deep_orange{tr:hover{background: rgba($deep_orange_color,0.1);}}
+	&.hover_light_blue{tr:hover{background: rgba($light_blue_color,0.1);}}
+	&.hover_cyan{tr:hover{background: rgba($cyan_color,0.1);}}
+
+		// table gradient hover start
+		&.hover_yellow_gradient_bg{tr:hover{background: $hover_yellow_gradient_bg_color;}}
+		&.hover_purple_gradient_bg{tr:hover{background: $hover_purple_gradient_bg_color;}}
+		&.hover_blue_gradient_bg{tr:hover{background: $hover_blue_gradient_bg_color;}}
+		&.hover_aqua_gradient_bg{tr:hover{background: $hover_aqua_gradient_bg_color;}}
+		&.hover_success_gradient_bg{tr:hover{background: $hover_success_gradient_bg_color;}}
+		&.hover_danger_gradient_bg{tr:hover{background: $hover_danger_gradient_bg_color;}}
+		&.hover_warning_gradient_bg{tr:hover{background: $hover_warning_gradient_bg_color;}}
+		// table gradient hover end
+	// table hover end
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// border all side start
+	&.bordered{tr > th,tr > td {border:1px solid #ccc;}}
+	// border all side end
+
+
+	// table border bottom start
+	&.bottom_bordered{tr+tr{border-top:1px solid #ccc;}}
+	// table border bottom end
+
+
+	// set border color start
+	&.bottom_bordered{
+		&.border_success{tr { border-color:$success_color; }}
+		&.border_default{tr { border-color:$default_color; }}
+		&.border_warning{tr { border-color:$warning_color; }}
+		&.border_primary{tr { border-color:$primary_color; }}
+		&.border_secondary{tr { border-color:$secondary_color; }}
+		&.border_info{tr { border-color:$info_color; }}
+		&.border_danger{tr { border-color:$danger_color; }}
+		&.border_light_green{tr { border-color:$light_green_color; }}
+		&.border_pink{tr { border-color:$pink_color; }}
+		&.border_purple{tr { border-color:$purple_color; }}
+		&.border_deep_purple{tr { border-color:$deep_purple_color; }}
+		&.border_dark_green{tr { border-color:$dark_green_color; }}
+		&.border_yellow{tr { border-color:$yellow_color; }}
+		&.border_grey{tr { border-color:$grey_color; }}
+		&.border_brown{tr { border-color:$brown_color; }}
+		&.border_deep_orange{tr { border-color:$deep_orange_color; }}
+		&.border_light_blue{tr { border-color:$light_blue_color; }}
+		&.border_cyan{tr { border-color:$cyan_color; }}
+	}
+
+	&.bordered{
+		&.border_success{tr > th,tr > td { border-color:$success_color; }}
+		&.border_default{tr > th,tr > td { border-color:$default_color; }}
+		&.border_warning{tr > th,tr > td { border-color:$warning_color; }}
+		&.border_primary{tr > th,tr > td { border-color:$primary_color; }}
+		&.border_secondary{tr > th,tr > td { border-color:$secondary_color; }}
+		&.border_info{tr > th,tr > td { border-color:$info_color; }}
+		&.border_danger{tr > th,tr > td { border-color:$danger_color; }}
+		&.border_light_green{tr > th,tr > td { border-color:$light_green_color; }}
+		&.border_pink{tr > th,tr > td { border-color:$pink_color; }}
+		&.border_purple{tr > th,tr > td { border-color:$purple_color; }}
+		&.border_deep_purple{tr > th,tr > td { border-color:$deep_purple_color; }}
+		&.border_dark_green{tr > th,tr > td { border-color:$dark_green_color; }}
+		&.border_yellow{tr > th,tr > td { border-color:$yellow_color; }}
+		&.border_grey{tr > th,tr > td { border-color:$grey_color; }}
+		&.border_brown{tr > th,tr > td { border-color:$brown_color; }}
+		&.border_deep_orange{tr > th,tr > td { border-color:$deep_orange_color; }}
+		&.border_light_blue{tr > th,tr > td { border-color:$light_blue_color; }}
+		&.border_cyan{tr > th,tr > td { border-color:$cyan_color; }}
+	}
+	// set border color end
+
+
+	// table header start
+	&.header{tr>th{background: #222;color:#fff;}}
+	&.header_default{tr>th{background: $default_color;color:#fff;}}
+	&.header_success{tr>th{background: $success_color;color:#fff;}}
+	&.header_warning{tr>th{background: $warning_color;color:#fff;}}
+	&.header_primary{tr>th{background: $primary_color;color:#fff;}}
+	&.header_secondary {tr>th{background: $secondary_color;color:#fff;}}
+	&.header_info {tr>th{background: $info_color;color:#fff;}}
+	&.header_danger {tr>th{background: $danger_color;color:#fff;}}
+	&.header_light_green {tr>th{background: $light_green_color;color:#fff;}}
+	&.header_pink {tr>th{background: $pink_color;color:#fff;}}
+	&.header_purple {tr>th{background: $purple_color;color:#fff;}}
+	&.header_deep_purple {tr>th{background: $deep_purple_color;color:#fff;}}
+	&.header_dark_green {tr>th{background: $dark_green_color;color:#fff;}}
+	&.header_yellow {tr>th{background: $yellow_color;color:#fff;}}
+	&.header_grey {tr>th{background: $grey_color;color:#fff;}}
+	&.header_brown {tr>th{background: $brown_color;color:#fff;}}
+	&.header_deep_orange {tr>th{background: $deep_orange_color;color:#fff;}}
+	&.header_light_blue {tr>th{background: $light_blue_color;color:#fff;}}
+	&.header_cyan {tr>th{background: $cyan_color;color:#fff;}}
+
+		// gradient header start
+		&.header_yellow_gradient_bg {tr>th{background: $yellow_gradient_bg_color;color:#fff;}}
+		&.header_purple_gradient_bg {tr>th{background: $purple_gradient_bg_color;color:#fff;}}
+		&.header_blue_gradient_bg {tr>th{background: $blue_gradient_bg_color;color:#fff;}}
+		&.header_aqua_gradient_bg {tr>th{background: $aqua_gradient_bg_color;color:#fff;}}
+		&.header_success_gradient_bg {tr>th{background: $success_gradient_bg_color;color:#fff;}}
+		&.header_danger_gradient_bg {tr>th{background: $danger_gradient_bg_color;color:#fff;}}
+		&.header_warning_gradient_bg {tr>th{background: $warning_gradient_bg_color;color:#fff;}}
+		// gradient header end
+	// table header end
+}
+
+.table_responsive{overflow-x: auto;}

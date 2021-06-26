@@ -1,0 +1,129 @@
+.profile-info {
+  background: #F5F7FA;
+  padding: 25px 20px;
+  margin: 20px 0; }
+  .profile-info h4 {
+    margin-bottom: 15px;
+    color: #0078D7;
+    font-size: 21px; }
+  .profile-info > div {
+    display: flex;
+    align-items: center; }
+  .profile-info .user-info {
+    overflow: hidden; }
+    .profile-info .user-info h5 {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+  .profile-info .profile {
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    min-width: 80px;
+    max-width: 80px;
+    height: 80px;
+    margin-right: 12px;
+    padding: 15px;
+    background: #0078D7;
+    position: relative;
+    overflow: hidden;
+    color: #fff; }
+    .profile-info .profile .cover {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all .2s; }
+      .profile-info .profile .cover i {
+        transform: scale(1.1);
+        transition: all .2s; }
+    .profile-info .profile:hover .cover {
+      opacity: 1; }
+      .profile-info .profile:hover .cover i {
+        transform: scale(1.2); }
+  .profile-info .profile-edit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px; }
+    .profile-info .profile-edit a {
+      color: #0078D7;
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      background: rgba(0, 120, 215, 0.1);
+      border-radius: 50%;
+      transition: all .2s; }
+      .profile-info .profile-edit a i {
+        vertical-align: middle;
+        display: inline-block; }
+      .profile-info .profile-edit a:focus, .profile-info .profile-edit a:hover {
+        background: rgba(0, 120, 215, 0.2); }
+    .profile-info .profile-edit h4 {
+      margin: 0; }
+  .profile-info p {
+    margin: 0; }
+  .profile-info ul {
+    margin-bottom: 0; }
+    .profile-info ul li {
+      border-bottom: 1px solid #ddd;
+      font-size: 15px;
+      padding: 10px 0; }
+      .profile-info ul li span {
+        display: inline-block;
+        min-width: 95px;
+        font-weight: bold; }
+      .profile-info ul li:last-child {
+        border-bottom: none; }
+
+.profile-form {
+  margin: 20px 0;
+  background: #F5F7FA;
+  padding: 25px 20px 15px; }
+  .profile-form h4 {
+    margin-bottom: 15px;
+    color: #0078D7;
+    font-size: 21px; }
+
+.modal-dialog {
+  padding: 0 15px; }
+
+.modal-content {
+  border-radius: 0; }
+
+.modal-title {
+  font-size: 22px;
+  color: #0078D7;
+  font-weight: 600; }
+
+.modal-header button:focus {
+  outline: none; }
+.modal-header button span {
+  color: #FFF;
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 25px;
+  font-size: 15px;
+  color: #FFF;
+  text-align: center;
+  background: rgba(0, 120, 215, 0.7);
+  border-radius: 50%;
+  transition: all .2s; }
+  .modal-header button span:focus, .modal-header button span:hover {
+    background: rgba(0, 120, 215, 0.9); }
+
+.modal-body {
+  padding: 15px 20px; }
+
+/*# sourceMappingURL=profile.css.map */

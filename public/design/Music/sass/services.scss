@@ -1,0 +1,53 @@
+@import "partials/second_header";
+
+
+/* singer section start */
+.singer_section {
+    padding: 85px 0 55px;
+    .singer_modal {
+        background: rgba(#126038, .8);
+        .modal-content {
+            border-radius: 0;
+            .table {
+                margin: 20px 0 0;
+            }
+        }
+    }
+    .singer_div {
+        margin-bottom: 30px;
+        cursor: pointer;
+        img {
+            min-height: 265px;
+            max-height: 320px;
+            object-fit: cover;
+        }
+    	.singer_content {
+            padding: 15px 12px 15px 15px;
+            background: #0B3A22;
+            position: relative;
+            &::before {
+                display: inline-block;
+                position: absolute;
+                background: #fff;
+                content: '';
+                height: 100%;
+                width: 3px;
+                top: 0;
+                left: 0;
+            }
+    		h5 {
+    			margin-bottom: 3px;
+    			font-size: 19px;
+                color: #fff;
+    		}
+            p {margin: 0;}
+    	}
+    }
+}
+@media screen and (max-width: 576px) {
+    .singer_section {
+        padding: 85px 0 45px;
+        .title_div {margin-bottom: 30px;}
+    }
+}
+/* singer section end */

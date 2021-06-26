@@ -1,0 +1,67 @@
+:root{
+    // left side main menu start------------------------
+    --left_side_header_border_color: #0001;
+
+    --left_side_bg_color: #ffffff;
+    --left_side_border_color: transparent;
+    --left_side_text_color: rgb(34, 34, 34);
+    --left_side_icon_color: rgb(51, 51, 51);
+
+
+    --left_side_bg_hover_color: whitesmoke;
+    --left_side_border_hover_color: transparent;
+    --left_side_text_hover_color: rgb(255, 71, 25);
+    --left_side_icon_hover_color: rgb(255, 71, 25);
+
+    --left_side_bg_active_color: #3f4d67;
+    --left_side_border_active_color: #f91e1e;
+    --left_side_text_active_color: rgb(255, 71, 25);
+    --left_side_icon_active_color: rgb(255, 71, 25);
+    // left side main menu end--------------------------
+
+
+
+    // left side dropdown end--------------------------
+    --left_side_dropdown_bg_color: #dfdfdf;
+    --left_side_dropdown_border_color: #dfdfdf;
+    --left_side_dropdown_text_color: #656565;
+    --left_side_dropdown_icon_color: rgb(50, 50, 50);
+
+
+    --left_side_dropdown_bg_hover_color: #ffffff;
+    --left_side_dropdown_border_hover_color: #ff790a;
+    --left_side_dropdown_text_hover_color: #ff790a;
+    --left_side_dropdown_icon_hover_color: #ff790a;
+
+
+    --left_side_dropdown_bg_active_color: #c1c1c1;
+    --left_side_dropdown_border_active_color: #3f4d67;
+    --left_side_dropdown_text_active_color: #212121;
+    --left_side_dropdown_icon_active_color: rgb(165, 74, 74);
+    // left side dropdown end--------------------------
+
+
+
+    --right_side_bg_color: rgb(236, 236, 236);
+    --right_side_text_color: #333;
+
+
+
+    // right side top nav start----------------------------
+    --right_top_nav_bg: rgb(51, 51, 51);
+    --right_top_nav_text: #fff;
+    // right side top nav end------------------------------
+
+
+    // top_bar color start---------------------------------
+    --top_bar_bg_color: #eee;
+    --top_bar_text_color: rgb(24, 24, 24);
+    --top_bar_border_color: transparent;
+    --top_bar_box_shadow: none;
+    
+    --top_bar_bg_hover_color: #fff;
+    --top_bar_text_hover_color: rgb(14, 13, 13);
+    --top_bar_border_hover_color: rgb(63, 63, 63);
+    --top_bar_hover_box_shadow: none;
+    // top_bar color end-----------------------------------
+}

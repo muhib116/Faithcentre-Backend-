@@ -1,0 +1,14 @@
+/* print media style start */
+@media print {
+  html, body {
+    font-size: 14px;
+    page-break-after: avoid; }
+
+  .aside, .main-nav, .alert, .wrapper-background, .body-header nav, title {
+    display: none; }
+
+  @page {
+    margin: 2cm 0; } }
+/* print media style end */
+
+/*# sourceMappingURL=print.css.map */

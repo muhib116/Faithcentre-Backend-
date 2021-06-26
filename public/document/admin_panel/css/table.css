@@ -1,0 +1,101 @@
+/*
+Error: Undefined variable: "$default_color".
+        on line 17 of sass/table.scss
+
+12: 	}
+13: 
+14: 	
+15: 	// table hover start
+16: 	&.hover{tr:hover{background: #eee;}}
+17: 	&.hover_default{tr:hover{background: rgba($default_color,0.1);}}
+18: 	&.hover_success{tr:hover{background: rgba($success_color,0.1);}}
+19: 	&.hover_warning{tr:hover{background: rgba($warning_color,0.1);}}
+20: 	&.hover_primary{tr:hover{background: rgba($primary_color,0.1);}}
+21: 	&.hover_secondary{tr:hover{background: rgba($secondary_color,0.1);}}
+22: 	&.hover_info{tr:hover{background: rgba($info_color,0.1);}}
+
+Backtrace:
+sass/table.scss:17
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/variable.rb:49:in `_perform'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/funcall.rb:186:in `perform_arg'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/funcall.rb:133:in `block in _perform'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/funcall.rb:133:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/funcall.rb:133:in `each_with_index'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/funcall.rb:133:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/funcall.rb:133:in `map'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/funcall.rb:133:in `_perform'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `map'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `map'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `map'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `map'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:161:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:10:in `visit'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:36:in `css_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:294:in `watch'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin.rb:109:in `method_missing'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:51:in `process_result'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/exec/base.rb:52:in `parse'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/exec/base.rb:19:in `parse!'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/bin/sass:13:in `<top (required)>'
+C:/Ruby24-x64/bin/sass:23:in `load'
+C:/Ruby24-x64/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$default_color\".\A         on line 17 of sass/table.scss\A \A 12: 	}\A 13: \A 14: 	\A 15: 	// table hover start\A 16: 	&.hover{tr:hover{background: #eee;}}\A 17: 	&.hover_default{tr:hover{background: rgba($default_color,0.1);}}\A 18: 	&.hover_success{tr:hover{background: rgba($success_color,0.1);}}\A 19: 	&.hover_warning{tr:hover{background: rgba($warning_color,0.1);}}\A 20: 	&.hover_primary{tr:hover{background: rgba($primary_color,0.1);}}\A 21: 	&.hover_secondary{tr:hover{background: rgba($secondary_color,0.1);}}\A 22: 	&.hover_info{tr:hover{background: rgba($info_color,0.1);}}"; }

@@ -1,0 +1,66 @@
+/*
+Error: Invalid CSS after "...eg, #ff6ec422, ": expected ")", was "#7873f522);"
+        on line 34 of sass/color.scss
+
+29: $warning_gradient_bg_color : linear-gradient(40deg, #f83600, #f9d423);
+30: /*gradient bg color end*\/
+31: 
+32: /*gradient bg color for hover start*\/
+33: $hover_yellow_gradient_bg_color  : linear-gradient(40deg, #ffd86f22, #fc626222);
+34: $hover_purple_gradient_bg_color  : linear-gradient(40deg, #ff6ec422, #7873f522);
+35: $hover_blue_gradient_bg_color    : linear-gradient(40deg, #45cafc22, #303f9f22);
+36: $hover_aqua_gradient_bg_color    : linear-gradient(40deg, #2096ff22, #05ffa322);
+37: $hover_success_gradient_bg_color : linear-gradient(40deg, #43e97b22, #38f9d722);
+38: $hover_danger_gradient_bg_color  : linear-gradient(40deg, #ff084422, #ffb19922);
+39: $hover_warning_gradient_bg_color : linear-gradient(40deg, #f8360022, #f9d42322);
+
+Backtrace:
+sass/color.scss:34
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/scss/parser.rb:1278:in `expected'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/lexer.rb:231:in `expected!'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:731:in `assert_tok'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:521:in `funcall'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:500:in `ident'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:291:in `unary_not'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:291:in `unary_div'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:291:in `unary_minus'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:291:in `unary_plus'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:272:in `times_div_or_mod'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:272:in `plus_or_minus'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:272:in `relational'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:272:in `eq_or_neq'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:272:in `and_expr'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:272:in `or_expr'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:474:in `space'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:415:in `interpolation'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:339:in `expr'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:722:in `assert_expr'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/script/parser.rb:68:in `parse'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/scss/parser.rb:1134:in `sass_script'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/scss/parser.rb:642:in `variable'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/scss/parser.rb:696:in `block_child'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/scss/parser.rb:689:in `block_contents'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/engine.rb:414:in `_to_tree'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:209:in `each'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:320:in `block in watch'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...eg, #ff6ec422, \": expected \")\", was \"#7873f522);\"\A         on line 34 of sass/color.scss\A \A 29: $warning_gradient_bg_color : linear-gradient(40deg, #f83600, #f9d423);\A 30: /*gradient bg color end*/\A 31: \A 32: /*gradient bg color for hover start*/\A 33: $hover_yellow_gradient_bg_color  : linear-gradient(40deg, #ffd86f22, #fc626222);\A 34: $hover_purple_gradient_bg_color  : linear-gradient(40deg, #ff6ec422, #7873f522);\A 35: $hover_blue_gradient_bg_color    : linear-gradient(40deg, #45cafc22, #303f9f22);\A 36: $hover_aqua_gradient_bg_color    : linear-gradient(40deg, #2096ff22, #05ffa322);\A 37: $hover_success_gradient_bg_color : linear-gradient(40deg, #43e97b22, #38f9d722);\A 38: $hover_danger_gradient_bg_color  : linear-gradient(40deg, #ff084422, #ffb19922);\A 39: $hover_warning_gradient_bg_color : linear-gradient(40deg, #f8360022, #f9d42322);"; }

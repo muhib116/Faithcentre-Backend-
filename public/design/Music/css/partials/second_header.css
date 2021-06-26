@@ -1,0 +1,64 @@
+/* second heder start */
+.second_header {
+  background-image: url("../images/bg-images/01.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.second_header .cover {
+  min-height: 320px;
+  height: 20vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 165px 0 40px;
+}
+.second_header .header-content h2 {
+  margin: 5px 0 15px;
+  word-spacing: 3px;
+  font-weight: 600;
+  font-size: 42px;
+}
+.second_header .header-content ul {
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+}
+.second_header .header-content ul li {
+  font-size: 17px;
+  float: left;
+  color: rgba(255, 255, 255, 0.7);
+}
+.second_header .header-content ul a {
+  margin-right: 24px;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+}
+.second_header .header-content ul a::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  position: absolute;
+  background: #fff;
+  transform: rotate(10deg);
+  right: -15px;
+  top: 6px;
+}
+
+@media screen and (max-width: 576px) {
+  .second_header .cover {
+    min-height: 300px;
+  }
+  .second_header .header-content h2 {
+    margin: 5px 0 10px;
+    font-size: 36px;
+  }
+}
+/* second heder end */
+
+/*# sourceMappingURL=second_header.css.map */

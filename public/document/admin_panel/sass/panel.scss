@@ -1,0 +1,203 @@
+/*
+Panel Type List
+-----------------------
+01.default
+02.success
+03.warning
+04.primary
+05.secondary
+06.info
+07.danger
+08.light_green
+09.pink
+10.purple
+11.deep_purple
+12.dark_green
+13.yellow
+14.grey
+15.brown
+16.deep_orange
+17.light_blue
+18.cyan
+19.yellow_gradient
+20.purple_gradient
+21.blue_gradient
+22.aqua_gradient
+23.success_gradient
+23.danger_gradient
+23.warning_gradient
+*****************************/
+
+// panel demo example **You can ignore panel_type**
+/*<div class="panel panel_type">
+    <header class="panel_header"><h3></h3></header>
+    <div class="panel_body"></div>
+    <footer class="panel_footer"></footer>
+</div>*/
+
+// panel start
+.panel{
+    margin-top: 15px;
+    box-shadow: 0px 1px 10px rgba(#000000,0.3);
+    border-radius: 4px;
+
+    &>.header{
+        padding: 10px 15px;
+        background: #eee;
+        color:#333;
+        user-select:none;
+    }
+    &>.body{
+        padding: 15px;
+
+    }
+    &>.footer{
+        padding: 10px 15px;
+        background: #eee;
+        font-weight: bold;
+        color:#777;
+        user-select:none;
+    }
+
+
+
+
+    // basic color panel start
+    &.default>.header,
+    &.default>.footer{
+        background: $default_color;
+        color: #ffffff;
+    }
+    &.success>.header,
+    &.success>.footer{
+        background: $success_color;
+        color: #ffffff;
+    }
+    &.warning>.header,
+    &.warning>.footer{
+        background: $warning_color;
+        color: #ffffff;
+    }
+    &.primary>.header,
+    &.primary>.footer{
+        background: $primary_color;
+        color: #ffffff;
+    }
+    &.secondary>.header,
+    &.secondary>.footer{
+        background: $secondary_color;
+        color: #ffffff;
+    }
+    &.info>.header,
+    &.info>.footer{
+        background: $info_color;
+        color: #ffffff;
+    }
+    &.danger>.header,
+    &.danger>.footer{
+        background: $danger_color;
+        color: #ffffff;
+    }
+    // basic color panel end
+
+
+    // solid color panel start
+    &.light_green>.header,
+    &.light_green>.footer{
+        background: $light_green_color;
+        color: #ffffff;
+    }
+    &.pink>.header,
+    &.pink>.footer{
+        background: $pink_color;
+        color: #ffffff;
+    }
+    &.purple>.header,
+    &.purple>.footer{
+        background: $purple_color;
+        color: #ffffff;
+    }
+    &.deep_purple>.header,
+    &.deep_purple>.footer{
+        background: $deep_purple_color;
+        color: #ffffff;
+    }
+    &.dark_green>.header,
+    &.dark_green>.footer{
+        background: $dark_green_color;
+        color: #ffffff;
+    }
+    &.yellow>.header,
+    &.yellow>.footer{
+        background: $yellow_color;
+        color: #ffffff;
+    }
+    &.grey>.header,
+    &.grey>.footer{
+        background: $grey_color;
+        color: #ffffff;
+    }
+    &.brown>.header,
+    &.brown>.footer{
+        background: $brown_color;
+        color: #ffffff;
+    }
+    &.deep_orange>.header,
+    &.deep_orange>.footer{
+        background: $deep_orange_color;
+        color: #ffffff;
+    }
+    &.light_blue>.header,
+    &.light_blue>.footer{
+        background: $light_blue_color;
+        color: #ffffff;
+    }
+    &.cyan>.header,
+    &.cyan>.footer{
+        background: $cyan_color;
+        color: #ffffff;
+    }
+    // solid color panel end
+
+    // colorwise gradient panel start
+    &.yellow_gradient>.header,
+    &.yellow_gradient>.footer{
+        background: $yellow_gradient_bg_color;
+        color: #fff;
+    }
+    &.purple_gradient>.header,
+    &.purple_gradient>.footer{
+        background: $purple_gradient_bg_color;
+        color: #fff;
+    }
+    &.blue_gradient>.header,
+    &.blue_gradient>.footer{
+        background: $blue_gradient_bg_color;
+        color: #fff;
+    }
+    &.aqua_gradient>.header,
+    &.aqua_gradient>.footer{
+        background: $aqua_gradient_bg_color;
+        color: #fff;
+    }
+    // colorwise gradient panel end
+
+    // basic gradient panel start
+    &.success_gradient>.header,
+    &.success_gradient>.footer{
+        background: $success_gradient_bg_color;
+        color: #fff;
+    }
+    &.danger_gradient>.header,
+    &.danger_gradient>.footer{
+        background: $danger_gradient_bg_color;
+        color: #fff;
+    }
+    &.warning_gradient>.header,
+    &.warning_gradient>.footer{
+        background: $warning_gradient_bg_color;
+        color: #fff;
+    }
+    // basic gradient panel end
+}
+// panel end

@@ -1,0 +1,119 @@
+/* second heder start */
+.second_header {
+  background-image: url("../images/bg-images/01.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.second_header .cover {
+  min-height: 320px;
+  height: 20vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 165px 0 40px;
+}
+.second_header .header-content h2 {
+  margin: 5px 0 15px;
+  word-spacing: 3px;
+  font-weight: 600;
+  font-size: 42px;
+}
+.second_header .header-content ul {
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+}
+.second_header .header-content ul li {
+  font-size: 17px;
+  float: left;
+  color: rgba(255, 255, 255, 0.7);
+}
+.second_header .header-content ul a {
+  margin-right: 24px;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+}
+.second_header .header-content ul a::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  position: absolute;
+  background: #fff;
+  transform: rotate(10deg);
+  right: -15px;
+  top: 6px;
+}
+
+@media screen and (max-width: 576px) {
+  .second_header .cover {
+    min-height: 300px;
+  }
+  .second_header .header-content h2 {
+    margin: 5px 0 10px;
+    font-size: 36px;
+  }
+}
+/* second heder end */
+/* singer section start */
+.singer_section {
+  padding: 85px 0 55px;
+}
+.singer_section .singer_modal {
+  background: rgba(18, 96, 56, 0.8);
+}
+.singer_section .singer_modal .modal-content {
+  border-radius: 0;
+}
+.singer_section .singer_modal .modal-content .table {
+  margin: 20px 0 0;
+}
+.singer_section .singer_div {
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.singer_section .singer_div img {
+  min-height: 265px;
+  max-height: 320px;
+  object-fit: cover;
+}
+.singer_section .singer_div .singer_content {
+  padding: 15px 12px 15px 15px;
+  background: #0B3A22;
+  position: relative;
+}
+.singer_section .singer_div .singer_content::before {
+  display: inline-block;
+  position: absolute;
+  background: #fff;
+  content: "";
+  height: 100%;
+  width: 3px;
+  top: 0;
+  left: 0;
+}
+.singer_section .singer_div .singer_content h5 {
+  margin-bottom: 3px;
+  font-size: 19px;
+  color: #fff;
+}
+.singer_section .singer_div .singer_content p {
+  margin: 0;
+}
+
+@media screen and (max-width: 576px) {
+  .singer_section {
+    padding: 85px 0 45px;
+  }
+  .singer_section .title_div {
+    margin-bottom: 30px;
+  }
+}
+/* singer section end */
+
+/*# sourceMappingURL=services.css.map */

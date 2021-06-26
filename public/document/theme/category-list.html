@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Corporate job records</title>
+        <!-- google font -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600" rel="stylesheet">
+        <!-- icons -->
+        <link href="https://unpkg.com/ionicons@4.4.4/dist/css/ionicons.min.css" rel="stylesheet">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css">
+        <!-- include style -->
+        <link rel="stylesheet" href="css/master.css">
+        <link rel="stylesheet" href="css/print.css">
+    </head>
+    <body>
+
+        <section class="wrapper" data-menu="category" data-submenu="category-list">
+            <!-- aside content start -->
+            <aside class="column aside">
+                <div class="brand">
+                    <span title="Company name">Company name</span>
+                    <a href="#" id="aside-close">
+                        <i class="icon ion-ios-close io-36"></i>
+                    </a>
+                </div>
+
+                <!-- aside nav start -->
+                <nav class="aside-nav">
+                    <h6>Bcd navigation</h6>
+                    <ul>
+                        <!-- dashboard -->
+                        <li id="dashboard">
+                            <a href="dashboard.html">
+                                <i class="icon ion-ios-speedometer"></i>
+                                <span title="Dashboard">Dashboard</span>
+                            </a>
+                        </li>
+
+                        <!-- email -->
+                        <li id="email">
+                            <a href="email.html">
+                                <i class="icon ion-ios-mail"></i>
+                                <span title="Email">Email</span>
+                                <span class="badge float-right">9</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6>Job Module</h6>
+                    <ul>
+                        <!-- job category -->
+                        <li id="category" class="dropdown">
+                            <a href="#">
+                                <i class="icon ion-ios-list"></i>
+                                <span title="Category">Category</span>
+                                <span class="float-right">
+                                    <i class="icon ion-ios-arrow-forward right"></i>
+                                    <i class="icon ion-ios-arrow-down down"></i>
+                                </span>
+                            </a>
+                            <ul>
+                                <li id="category-list"><a href="" title="Records">Records</a></li>
+                                <li id="category-add"><a href="category-add.html" title="Create new">Create new</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- subcategory -->
+                        <li id="sub-category" class="dropdown">
+                            <a href="#">
+                                <i class="icon ion-ios-git-merge"></i>
+                                <span title="Subcategory">Subcategory</span>
+                                <span class="float-right">
+                                    <i class="icon ion-ios-arrow-forward right"></i>
+                                    <i class="icon ion-ios-arrow-down down"></i>
+                                </span>
+                            </a>
+                            <ul>
+                                <li id="sub-category-list"><a href="sub-category-list.html" title="Records">Records</a></li>
+                                <li id="sub-category-add"><a href="sub-category-add.html" title="Create new">Create new</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- pages -->
+                        <li id="pages" class="dropdown">
+                            <a href="#">
+                                <i class="icon ion-ios-clipboard"></i>
+                                <span title="Pages">Pages</span>
+                                <span class="float-right">
+                                    <i class="icon ion-ios-arrow-forward right"></i>
+                                    <i class="icon ion-ios-arrow-down down"></i>
+                                </span>
+                            </a>
+                            <ul>
+                                <li id="about-mydatalist"><a href="#" title="About My data list">About My data list</a></li>
+                                <li id="faq"><a href="#" title="Faq">Faq</a></li>
+                                <li id="privacy-policy"><a href="#" title="Privacy policy">Privacy policy</a></li>
+                                <li id="disclaimer"><a href="#" title="Disclaimer - Terms and conditions">Disclaimer - Terms and conditions</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h6>Your Stuff</h6>
+                    <ul>
+                        <!-- analysis tools -->
+                        <li id="analysis-tools">
+                            <a href="analysis-tools.html">
+                                <i class="icon ion-ios-analytics"></i>
+                                <span title="Analysis tools">Analysis tools</span>
+                            </a>
+                        </li>
+
+                        <!-- sitemap -->
+                        <li id="sitemap">
+                            <a href="index.html">
+                                <i class="icon ion-ios-map"></i>
+                                <span title="Site map">Site map</span>
+                            </a>
+                        </li>
+
+                        <!-- profile -->
+                        <li id="profile">
+                            <a href="profile.html">
+                                <i class="icon ion-ios-contact"></i>
+                                <span title="Profile">Profile</span>
+                                <span class="badge float-right">30%</span>
+                            </a>
+                        </li>
+
+                        <!-- settings -->
+                        <li id="settings">
+                            <a href="#">
+                                <i class="icon ion-ios-settings"></i>
+                                <span title="Settings">Settings</span>
+                            </a>
+                        </li>
+
+                        <!-- document -->
+                        <li id="documents">
+                            <a href="#">
+                                <i class="icon ion-ios-document"></i>
+                                <span title="Documents">Documents</span>
+                                <span class="badge float-right">10</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <!-- aside content end -->
+
+
+
+            <!-- right bar -->
+            <div class="right-bar">
+                <div class="title">
+                    <span title="Settings">Settings</span>
+                    <a href="#" class="settings">
+                        <i class="ion-android-close io-24"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- right bar -->
+
+
+
+            <!-- body section start -->
+            <div class="column body">
+                <!-- body nav start -->
+                <nav class="main-nav">
+                    <ul class="float-left">
+                        <li class="user-dropdown">
+                            <a href="#" id="aside-toggle">
+                                <i class="icon ion-ios-menu io-23"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="float-right">
+                        <!-- notifications -->
+                        <li class="user-dropdown">
+                            <a href="#" class="menu-button">
+                                <i class="icon ion-ios-notifications io-21"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="head">
+                                    <a href="#">
+                                        <h6>You have 2 notifications</h6>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Awesome aminmate.css</span>
+                                        <small>10 minit ago</small>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span>Awesome aminmate.css</span>
+                                        <small>10 minit ago</small>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- settings -->
+                        <li class="user-dropdown">
+                            <a href="#" class="settings">
+                                <i class="icon ion-ios-settings io-21"></i>
+                            </a>
+                        </li>
+
+                        <!-- profile -->
+                        <li class="user-dropdown">
+                            <a href="#" class="menu-button">
+                                <img src="images/avatars/user.png" alt="">
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="head">
+                                    <a href="#">
+                                        <h6>Username</h6>
+                                        <small>example@gmail.com</small>
+                                    </a>
+                                </li>
+                                <li><a href="#">Settings</a></li>
+                                <li>
+                                    <a href="#">
+                                        <span>Profile</span>
+                                        <span class="badge float-right">30%</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- body nav end -->
+
+
+                <!-- body container start -->
+                <div class="body-container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- body header start -->
+                            <header class="body-header">
+                                <div class="container">
+                                    <h3>Corporate job records</h3>
+                                </div>
+                            </header>
+                            <!-- body header end -->
+
+
+                            <!-- body content start -->
+                            <div class="body-content">
+                                <div class="container">
+                                    <!-- warning -->
+                                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                        Simple primary alert—check it out!
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <i aria-hidden="true" class="ion-android-close io-18"></i>
+                                        </button>
+                                    </div>
+                                    <!-- form -->
+                                    <form action="#" method="post">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-3 col-sm-4 col-6">
+                                                <input type="text" name="suppplier" id="purchase-price" class="form-control" placeholder="Search">
+                                            </div>
+
+                                            <div class="form-group col-md-2 offset-md-7 col-sm-3 offset-sm-5 col-5 offset-1">
+                                                <select class="form-control">
+                                                    <option value="all" selected>All records</option>
+                                                    <option value="15">15</option>
+                                                    <option value="30">30</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <!-- list table -->
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered list-table">
+                                            <thead class="list-header">
+                                                <tr>
+                                                    <th title="Select all" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox" id="checkAll">
+                                                            <label></label>
+                                                        </div>
+                                                    </th>
+                                                    <th title="Serial number" class="serial-number">#</th>
+                                                    <th title="Job title">Job title</th>
+                                                    <th title="Company name">Company name</th>
+                                                    <th title="Published date">Published date</th>
+                                                    <th title="Published date">Deadline</th>
+                                                    <th title="Generate" class="generate">Generate</th>
+                                                    <th class="status" title="Status">Status</th>
+                                                    <th class="text-right">
+                                                        <span class="header-action-title" title="Action">Action</span>
+                                                        <span class="header-action">
+                                                            <a href="#" title="Print">
+                                                                <i class="ion-android-print io-16"></i>
+                                                            </a>
+                                                            <a href="#" title="Delete">
+                                                                <i class="ion-android-delete io-16"></i>
+                                                            </a>
+                                                        </span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="01">01</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" class="active" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="01">
+                                                        <label for="01"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="02">02</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" class="active" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="02">
+                                                        <label for="02"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="03">03</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="03">
+                                                        <label for="03"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="04">04</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="04">
+                                                        <label for="04"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="05">05</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="05">
+                                                        <label for="05"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="06">06</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="06">
+                                                        <label for="06"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="07">07</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="07">
+                                                        <label for="07"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="08">08</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="08">
+                                                        <label for="08"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="09">09</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" class="active" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="09">
+                                                        <label for="09"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="10">10</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="10">
+                                                        <label for="10"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="11">11</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="11">
+                                                        <label for="11"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="12">12</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="12">
+                                                        <label for="12"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="13">13</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="13">
+                                                        <label for="13"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="14">14</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="14">
+                                                        <label for="14"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td title="Select" class="check-box">
+                                                        <div class="delete-check">
+                                                            <input type="checkbox">
+                                                            <label></label>
+                                                        </div>
+                                                    </td>
+                                                    <td title="15">15</td>
+                                                    <td title="Web Designer">Web Designer</td>
+                                                    <td title="Maxsop">Maxsop</td>
+                                                    <td title="Jan 10, 2019">Jan 10, 2019</td>
+                                                    <td title="Jan 10, 2020">Jan 10, 2020</td>
+                                                    <td class="generate">
+                                                        <a href="#" title="Generate">
+                                                            <i class="ion-loop io-18"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="status">
+                                                        <input type="checkbox" id="15">
+                                                        <label for="15"></label>
+                                                    </td>
+                                                    <td class="table-action">
+                                                        <a href="company-view.html" title="View">
+                                                            <i class="ion-eye io-18"></i>
+                                                        </a>
+                                                        <a href="#" title="Edit">
+                                                            <i class="ion-compose io-15"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete">
+                                                            <i class="ion-android-delete io-16"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- pagination -->
+                                    <nav>
+                                        <ul class="pagination">
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- body content end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- body container end -->
+            </div>
+            <!-- body section end -->
+        </section>
+        <div class="wrapper-background"></div>
+
+
+        <!-- jQuery js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- bootstrap js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <!-- niceScroll js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+
+        <!-- include js -->
+        <script src="js/app.js"></script>
+    </body>
+</html>

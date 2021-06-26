@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,600,600i,700,700i|Muli:300,300i,400,400i,600,600i,700,700i');
+/*font-family: 'Muli', sans-serif;
+font-family: 'Josefin Sans', sans-serif;*/
+*,*::after,*::before{box-sizing:border-box;padding:0;margin:0;}
+body{
+	font-family:'Muli', sans-serif;
+	font-size:18px;
+}
+
+
+// customize scroll bar of browser start
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ddd; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.5); 
+}
+::scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::scrollbar-thumb:hover {
+  background: #555; 
+}
+// customize scroll bar of browser end
+
+
+//this font for title
+%title_font{
+	font-family:'Josefin Sans', sans-serif;
+}
+
+
+hr{
+	border: none;
+  border-bottom: 0.5px solid #ccc;
+  margin: 10px 0;
+}
+
+h1,h2,h3,h4,h5,h6{margin-bottom:6px;}

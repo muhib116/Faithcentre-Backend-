@@ -1,0 +1,182 @@
+/* second heder start */
+.second_header {
+  background-image: url("../images/bg-images/01.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.second_header .cover {
+  min-height: 320px;
+  height: 20vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 165px 0 40px;
+}
+.second_header .header-content h2 {
+  margin: 5px 0 15px;
+  word-spacing: 3px;
+  font-weight: 600;
+  font-size: 42px;
+}
+.second_header .header-content ul {
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+}
+.second_header .header-content ul li {
+  font-size: 17px;
+  float: left;
+  color: rgba(255, 255, 255, 0.7);
+}
+.second_header .header-content ul a {
+  margin-right: 24px;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+}
+.second_header .header-content ul a::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  position: absolute;
+  background: #fff;
+  transform: rotate(10deg);
+  right: -15px;
+  top: 6px;
+}
+
+@media screen and (max-width: 576px) {
+  .second_header .cover {
+    min-height: 300px;
+  }
+  .second_header .header-content h2 {
+    margin: 5px 0 10px;
+    font-size: 36px;
+  }
+}
+/* second heder end */
+/* contact section start */
+.contact-section {
+  padding: 95px 0 54px;
+  background: #fff;
+}
+.contact-section a {
+  text-decoration: underline;
+}
+.contact-section a:hover {
+  text-decoration: none;
+}
+.contact-section .contact .address,
+.contact-section .contact article {
+  margin-bottom: 35px;
+}
+.contact-section .contact h2 {
+  margin: 0 0 12px;
+  color: #000;
+  font-weight: 600;
+}
+.contact-section .contact p, .contact-section .contact a {
+  margin-bottom: 5px;
+}
+.contact-section .contact a {
+  color: #000;
+}
+.contact-section .contact a:hover {
+  color: #0B3A22;
+}
+.contact-section .form-title {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.contact-section .form-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0B3A22;
+}
+.contact-section .form-title h2 span {
+  color: #000;
+}
+.contact-section h4 {
+  margin: 20px 0 12px;
+}
+.contact-section .form-group {
+  overflow: hidden;
+}
+.contact-section .required label {
+  margin-bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.contact-section .required label:after {
+  content: " *";
+  color: #0B3A22;
+}
+.contact-section .request-form h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+.contact-section .request-form input[type=text],
+.contact-section .request-form input[type=email],
+.contact-section .request-form input[type=date],
+.contact-section .request-form input[type=file],
+.contact-section .request-form select {
+  background: none;
+  border-radius: 0;
+  height: 38px;
+  line-height: 38px;
+  box-shadow: none;
+  border-color: #ddd;
+  color: #000;
+}
+.contact-section .request-form input[type=text]:focus,
+.contact-section .request-form input[type=email]:focus,
+.contact-section .request-form input[type=date]:focus,
+.contact-section .request-form input[type=file]:focus,
+.contact-section .request-form select:focus {
+  box-shadow: none;
+  border-color: rgba(11, 58, 34, 0.5);
+}
+.contact-section .request-form input[type=file] {
+  line-height: 30px !important;
+  padding: 0 !important;
+}
+.contact-section .request-form textarea {
+  background: none;
+  border-radius: 0;
+  border-color: #ddd;
+  box-shadow: none;
+  resize: vertical;
+}
+.contact-section .request-form textarea:focus {
+  box-shadow: none;
+  border-color: rgba(11, 58, 34, 0.5);
+}
+.contact-section .request-form button[type=submit] {
+  border-radius: 0;
+  background: #0B3A22;
+  color: #FFF;
+  padding: 10px 25px;
+  transition: all 0.2s;
+  border: none;
+}
+.contact-section .request-form button[type=submit]:hover, .contact-section .request-form button[type=submit]:focus {
+  background: #051c10;
+  outline: none;
+}
+
+@media screen and (max-width: 576px) {
+  .contact-section {
+    padding: 65px 0 45px;
+  }
+}
+/* contact section end */
+
+/*# sourceMappingURL=contact.css.map */
