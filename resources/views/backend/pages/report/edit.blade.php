@@ -37,7 +37,7 @@
 						
 							<div class="form-group">
 								<label class="label-control">Students Type *</label>
-								<select name="student_type" required class="form-control" onchange="getStudents(this.value)" readonly>
+								<select name="student_type" required class="form-control" onchange="getStudents(this.value)">
 									<option value="" selected>-select type-</option>
 									@foreach(student_type() as $type)
 										@if($type != 'hifz')
@@ -49,7 +49,7 @@
 
 							<div class="form-group">
 								<label class="label-control">Select Student *</label>
-								<select required name="student_id" id="select_student" class="form-control" readonly>
+								<select required name="student_id" id="select_student" class="form-control">
 									<option value="">-please select-</option>
 
 									@foreach($students as $key => $value)

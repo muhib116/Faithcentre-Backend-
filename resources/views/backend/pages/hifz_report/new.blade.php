@@ -89,7 +89,7 @@
 													<thead>
 														<tr>
 															<th>Juz</th>
-															<th>Page qnty</th>
+															<th>Page Number</th>
 															<th>Line</th>
 															<th width="10">
 																<button  type="button" class="btn btn-success"  onclick="clone_function('sabak')">+</button>
@@ -99,14 +99,14 @@
 													<tbody id="sabak">
 														<tr>
 															<td>
-																<input type="number" min="1" step="1" required name="savak_juz[]" class="form-control" placeholder="Write Juz Number">
+																<input type="number" min="1" max="30" step="1" required name="sabak_juz[]" class="form-control" placeholder="Write Juz Number">
 															</td>
 
 															<td>
-																<input type="number" min="1" step="1" required name="savak_page[]"  class="form-control" placeholder="Write Page Number">
+																<input type="number" min="1" max="30" step="1" required name="sabak_page[]"  class="form-control" placeholder="Write Page Number">
 															</td>
 															<td>
-																<input type="number" min="1" step="1" required name="savak_line[]"  class="form-control" placeholder="Write Line Number">
+																<input type="number" min="1" max="30" step="1" required name="sabak_line[]"  class="form-control" placeholder="Write Line Number">
 															</td>
 															<td>
 																<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
@@ -117,11 +117,11 @@
 											</div>
 											<div class="card-footer text-right">
 												<label style="display: inline-flex;align-items: center;gap:5px;" class="text-success">
-													<input type="radio" required name="passed_fail" value="1" >
+													<input type="radio" required name="is_passed_sabak" value="1" >
 													Passed
 												</label>
 												<label style="display: inline-flex;align-items: center;gap:5px;" class="text-danger">
-													<input type="radio" required name="passed_fail" value="0" >
+													<input type="radio" required name="is_passed_sabak" value="0" >
 													Failed
 												</label>
 											</div>
@@ -137,7 +137,7 @@
 													<thead>
 														<tr>
 															<th>Juz</th>
-															<th>Page</th>
+															<th>Page qnty</th>
 															<th width="10">
 																<button  type="button" class="btn btn-success"  onclick="clone_function('seven_sabak')">+</button>
 															</th>
@@ -146,11 +146,11 @@
 													<tbody id="seven_sabak">
 														<tr>
 															<td>
-																<input type="number" min="1" step="1" required name="seven_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
+																<input type="number" min="1" max="30" step="1" required name="seven_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
 															</td>
 
 															<td>
-																<input type="number" min="1" step="1" required name="seven_sabak_page[]"  class="form-control" placeholder="Write Page Number">
+																<input type="number" min="1" step="1" required name="seven_sabak_page_qnty[]"  class="form-control" placeholder="Write Page Number">
 															</td>
 															<td>
 																<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
@@ -161,12 +161,12 @@
 											</div>
 											<div class="card-footer text-right">
 												<label style="display: inline-flex;align-items: center;gap:5px;" class="text-success">
-													<input type="radio" required name="seven_sabak_passed_fail" value="1" >
+													<input type="radio" required name="is_passed_seven_sabak" value="1" >
 													Passed
 												</label>
 												&nbsp;&nbsp;
 												<label style="display: inline-flex;align-items: center;gap:5px;" class="text-danger">
-													<input type="radio" required name="seven_sabak_passed_fail" value="0" >
+													<input type="radio" required name="is_passed_seven_sabak" value="0" >
 													Failed
 												</label>
 											</div>
@@ -182,8 +182,8 @@
 													<thead>
 														<tr>
 															<th>Juz</th>
-															<th>Page From</th>
-															<th>Page To</th>
+															<th>Page Number <small>(From)</small></th>
+															<th>Page Number <small>(To)</small></th>
 															<th width="10">
 																<button  type="button" class="btn btn-success"  onclick="clone_function('rivision_sabak')">+</button>
 															</th>
@@ -192,13 +192,13 @@
 													<tbody id="rivision_sabak">
 														<tr>
 															<td>
-																<input type="number" min="1" step="1" required name="rivision_juz[]" class="form-control" placeholder="Write Juz Number">
+																<input type="number" min="1" max="30" step="1" required name="rivision_juz[]" class="form-control" placeholder="Write Juz Number">
 															</td>
 															<td>
-																<input type="number" min="1" step="1" required name="rivision_page_from[]"  class="form-control" placeholder="Write Page Number">
+																<input type="number" min="1" max="30" step="1" required name="rivision_page_from[]"  class="form-control" placeholder="Write Page Number">
 															</td>
 															<td>
-																<input type="number" min="1" step="1" required name="rivision_page_to[]"  class="form-control" placeholder="Write Page Number">
+																<input type="number" min="1" max="30" step="1" required name="rivision_page_to[]"  class="form-control" placeholder="Write Page Number">
 															</td>
 															<td>
 																<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
@@ -209,12 +209,12 @@
 											</div>
 											<div class="card-footer text-right">
 												<label style="display: inline-flex;align-items: center;gap:5px;" class="text-success">
-													<input type="radio" required name="seven_sabak_passed_fail" value="1" >
+													<input type="radio" required name="is_passed_rivision" value="1" >
 													Passed
 												</label>
 												&nbsp;&nbsp;
 												<label style="display: inline-flex;align-items: center;gap:5px;" class="text-danger">
-													<input type="radio" required name="seven_sabak_passed_fail" value="0" >
+													<input type="radio" required name="is_passed_rivision" value="0" >
 													Failed
 												</label>
 											</div>
@@ -243,7 +243,7 @@
 													<thead>
 														<tr>
 															<th>Juz</th>
-															<th>Page qnty</th>
+															<th>Page Number</th>
 															<th>Line</th>
 															<th width="10">
 																<button  type="button" class="btn btn-success"  onclick="clone_function('homework_sabak')">+</button>
@@ -253,14 +253,14 @@
 													<tbody id="homework_sabak">
 														<tr>
 															<td>
-																<input type="number" min="1" step="1" required name="homework_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
+																<input type="number" min="1" max="30" step="1" required name="homework_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
 															</td>
 
 															<td>
-																<input type="number" min="1" step="1" required name="homework_sabak_page[]"  class="form-control" placeholder="Write Page Number">
+																<input type="number" min="1" max="30" step="1" required name="homework_sabak_page[]"  class="form-control" placeholder="Write Page Number">
 															</td>
 															<td>
-																<input type="number" min="1" step="1" required name="homework_sabak_line[]"  class="form-control" placeholder="Write Line Number">
+																<input type="number" min="1" max="30" step="1" required name="homework_sabak_line[]"  class="form-control" placeholder="Write Line Number">
 															</td>
 															<td>
 																<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
@@ -281,20 +281,20 @@
 													<thead>
 														<tr>
 															<th>Juz</th>
-															<th>Page</th>
+															<th>Page qnty</th>
 															<th width="10">
-																<button  type="button" class="btn btn-success"  onclick="clone_function('seven_sabak')">+</button>
+																<button  type="button" class="btn btn-success"  onclick="clone_function('homework_seven_sabak')">+</button>
 															</th>
 														</tr>
 													</thead>
-													<tbody id="seven_sabak">
+													<tbody id="homework_seven_sabak">
 														<tr>
 															<td>
-																<input type="number" min="1" step="1" required name="homework_seven_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
+																<input type="number" min="1" max="30" step="1" required name="homework_seven_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
 															</td>
 
 															<td>
-																<input type="number" min="1" step="1" required name="homework_seven_sabak_page[]"  class="form-control" placeholder="Write Page Number">
+																<input type="number" min="1" step="1" required name="homework_seven_sabak_page_qnty[]"  class="form-control" placeholder="Write Page Number">
 															</td>
 															<td>
 																<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
@@ -315,23 +315,23 @@
 													<thead>
 														<tr>
 															<th>Juz</th>
-															<th>Page From</th>
-															<th>Page To</th>
+															<th>Page Number <small>(From)</small></th>
+															<th>Page Number <small>(To)</small></th>
 															<th width="10">
-																<button  type="button" class="btn btn-success"  onclick="clone_function('rivision_sabak')">+</button>
+																<button  type="button" class="btn btn-success"  onclick="clone_function('homework_rivision_sabak')">+</button>
 															</th>
 														</tr>
 													</thead>
-													<tbody id="rivision_sabak">
+													<tbody id="homework_rivision_sabak">
 														<tr>
 															<td>
-																<input type="number" min="1" step="1" required name="homework_rivision_juz[]" class="form-control" placeholder="Write Juz Number">
+																<input type="number" min="1" max="30" step="1" required name="homework_rivision_juz[]" class="form-control" placeholder="Write Juz Number">
 															</td>
 															<td>
-																<input type="number" min="1" step="1" required name="homework_rivision_page_from[]"  class="form-control" placeholder="Write Page Number">
+																<input type="number" min="1" max="30" step="1" required name="homework_rivision_page_from[]"  class="form-control" placeholder="Write Page Number">
 															</td>
 															<td>
-																<input type="number" min="1" step="1" required name="homework_rivision_page_to[]"  class="form-control" placeholder="Write Page Number">
+																<input type="number" min="1" max="30" step="1" required name="homework_rivision_page_to[]"  class="form-control" placeholder="Write Page Number">
 															</td>
 															<td>
 																<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>

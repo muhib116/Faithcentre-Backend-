@@ -1,7 +1,7 @@
 @php
 	$student_types = '';
-	foreach($students as $key => $value){
-		$student_types .= $value->id.'-'.$value->type.',';
+	foreach($students as $key => $vlaue){
+		$student_types .= $vlaue->id.'-'.$vlaue->type.',';
 	}
 @endphp
 
@@ -17,42 +17,33 @@
             Update Hifz Report
 		</div>
 		
-		@if($result)
-			<strong class="text-warning text-center" id="my_loader">Loading...</strong>
-			<div>
-				<div class="container_fluid">
-					{!! msg($name='msg') !!}
-					@if ($errors->any())
-						{{ validation_msg($errors->all()) }}
-					@endif
+		<strong class="text-danger text-center" id="my_loader">Loading...</strong>
+		<div>
+			<div class="container_fluid">
+				{!! msg($name='msg') !!}
+				@if ($errors->any())
+					{{ validation_msg($errors->all()) }}
+				@endif
 
+				@if($result)
 					<form action="{{ route('admin.update_process_hifzreport', $result->id).get_system() }}" method="post" enctype="multipart/form-data">
 						@csrf
-						<div class="col-lg-10">
+						<div class="col-lg-10 p-0">
 
 							<div class="form-group">
 								<label class="label-control">Date</label>
 								<input type="date" name="date" value="{{ $result->date }}" class="form-control" />
 							</div>
-						
-							<div class="form-group">
-								<label class="label-control">Students Type *</label>
-								<select name="student_type" required class="form-control" onchange="getStudents(this.value)" readonly>
-									<option value="" selected>-select type-</option>
-									@foreach(student_type() as $type)
-										<option {{ ($result->student_type === $type) ? 'selected' : '' }} value="{{$type}}">{{ ucfirst($type) }}</option>
-									@endforeach
-								</select>
-							</div>
 
 							<div class="form-group">
 								<label class="label-control">Select Student *</label>
-								<select required name="student_id" id="select_student" class="form-control" readonly>
-									<option value="">-please select-</option>
-
-									@foreach($students as $key => $value)
-										<option {{ ($result->student_id === $value->id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->name }} ({{ $value->type }})</option>
-									@endforeach
+								<select required name="student_id" id="select_student" class="form-control" onchange="verify_student_atendance(this);">
+									<option value="" selected>-please select-</option>
+									@if(count($students))
+										@foreach($students as $key => $value)
+											<option {{ ($result->student_id == $value->id) ? 'selected' : '' }} value="{{ $value->id }}">{{ $value->name }}</option>
+										@endforeach
+									@endif
 								</select>
 							</div>
 
@@ -61,214 +52,349 @@
 
 								<div style="display:flex; gap:15px; flex-wrap: wrap; align-items:center;" class="form-control">
 									<label style="display: flex;align-items: center;gap:5px;">
-										<input type="radio" {{ ($result->student_status == 'present') ? 'checked' : '' }} required name="student_status" value="present" onclick="handleStudentStatus(this)">
+										<input type="radio" {{ $result->student_status == 'present' ? 'checked' : '' }} required name="student_status" value="present" onclick="handleStudentStatus(this)">
 										Present
 									</label>
 									<label style="display: flex;align-items: center;gap:5px;">
-										<input type="radio" {{ ($result->student_status == 'absent') ? 'checked' : '' }} required name="student_status" value="absent" onclick="handleStudentStatus(this)">
+										<input type="radio" {{ $result->student_status == 'absent' ? 'checked' : '' }} required name="student_status" value="absent" onclick="handleStudentStatus(this)">
 										Absent
 									</label>
 									<label style="display: flex;align-items: center;gap:5px;">
-										<input type="radio" {{ ($result->student_status == 'late') ? 'checked' : '' }} required name="student_status" value="late" onclick="handleStudentStatus(this)">
+										<input type="radio" {{ $result->student_status == 'late' ? 'checked' : '' }} required name="student_status" value="late" onclick="handleStudentStatus(this)">
 										Late
 									</label>
 									<label style="display: flex;align-items: center;gap:5px;">
-										<input type="radio" {{ ($result->student_status == 'interrupted') ? 'checked' : '' }} required name="student_status" value="interrupted" onclick="handleStudentStatus(this)">
+										<input type="radio" {{ $result->student_status == 'interrupted' ? 'checked' : '' }} required name="student_status" value="interrupted" onclick="handleStudentStatus(this)">
 										Interrupted
 									</label>
 								</div>
 							</div>
 
 
-
 							<div id="report_container">
-									
-
-								{{-- current sabak start --}}
+								<div class="form-group">
+										
+									{{-- current sabak start --}}
 									<div class="card card-success p-3 mb-3">
 										<div class="card-title text-success">
 											Done today
 										</div>
+
 										<div>
-											<label class="label-control">{{ ucfirst(str_replace('_', ' ', $result->student_type)) }} *</label>
-											<table class="table table-bordered">
-												<thead>
-													<tr>
-														<th>{{ ($result->student_type == 'qaidah') ? 'Page' : 'Sura' }}</th>
-														<th>Start (<small>{{ ($result->student_type == 'qaidah') ? 'Box' : 'Ayat' }}</small>)</th>
-														<th>End (<small>{{ ($result->student_type == 'qaidah') ? 'Box' : 'Ayat' }}</small>)</th>
-														<th width="10">
-															<button  type="button" class="btn btn-success"  onclick="clone_function('ajker_pora')">+</button>
-														</th>
-													</tr>
-												</thead>
-
-												<tbody id="ajker_pora">
-
-													@if(count($result->sabak))
-														@foreach($result->sabak as $ajker_sabak_key => $ajker_sabak_value)
-															@if($ajker_sabak_value->type == 'current_sabak')
+											@php
+												$sabak = $result->sabak;
+											@endphp									
+																
+											@if(count($sabak))
+												{{-- sabak part start here --}}
+												<div class="card mb-4">
+													<div class="card-header bg-danger text-light">Sabak</div>
+													<div class="card-body">
+														<table class="table table-bordered">
+															<thead>
 																<tr>
-																	@if($result->student_type == 'qaidah')
-																		<td>
-																			<input type="number" min="1" step="1" required name="page_or_sura[]" value="{{ $ajker_sabak_value->page_or_sura }}" class="form-control" placeholder="Write page number">
-																		</td>
-																	@elseif('quran')
-																		<td>
-																			<input type="text" list="quran_sura" required name="page_or_sura[]" value="{{ $ajker_sabak_value->page_or_sura }}" class="form-control" placeholder="Write sura name">
-																			<datalist id="quran_sura">
-																				@foreach(quran_suras() as $sura)
-																					<option value="{{ucfirst($sura)}}" />
-																				@endforeach
-																			</datalist>
-																		</td>
-																	@else
-																		<td>
-																			<input type="text" list="juz_ammah_sura" required name="page_or_sura[]" value="{{ $ajker_sabak_value->page_or_sura }}" class="form-control" placeholder="Write sura name">
-																			<datalist id="juz_ammah_sura">
-																				@foreach(juz_amma_suras() as $sura)
-																					<option value="{{ucfirst($sura)}}" />
-																				@endforeach
-																			</datalist>
-																		</td>
-																	@endif
-
-
-																	<td>
-																		<input type="number" min="1" step="1" required name="from[]"  value="{{ $ajker_sabak_value->from }}" class="form-control" placeholder="Write box number">
-																	</td>
-																	<td>
-																		<input type="number" min="1" step="1" required name="to[]"  value="{{ $ajker_sabak_value->to }}" class="form-control" placeholder="Write box number">
-																	</td>
-																	<td>
-																		<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
-																	</td>
+																	<th>Juz</th>
+																	<th>Page Number</th>
+																	<th>Line</th>
+																	<th width="10">
+																		<button  type="button" class="btn btn-success"  onclick="clone_function('sabak')">+</button>
+																	</th>
 																</tr>
-															@endif
-														@endforeach
-													@endif
+															</thead>
+															<tbody id="sabak">
+																@foreach($sabak as $key => $value)
+																	@if($value->sabak_type == 'sabak' && ($value->is_homework != 1))
+																		<tr>
+																			<td>
+																				<input type="number" min="1" step="1" max="30" required value="{{ $value->juz }}" name="sabak_juz[]" class="form-control" placeholder="Write Juz Number">
+																			</td>
 
-												<tbody>
-											</table>
+																			<td>
+																				<input type="number" min="1" step="1" required value="{{ $value->page_number }}" name="sabak_page[]"  class="form-control" placeholder="Write Page Number">
+																			</td>
+																			<td>
+																				<input type="number" min="1" step="1" required value="{{ $value->sabak_line }}" name="sabak_line[]"  class="form-control" placeholder="Write Line Number">
+																			</td>
+																			<td>
+																				<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
+																			</td>
+																		</tr>
+																	@endif
+																@endforeach
+															<tbody>
+														</table>
+													</div>
+													<div class="card-footer text-right">
+														<label style="display: inline-flex;align-items: center;gap:5px;" class="text-success">
+															<input type="radio" required {{ ($result->is_passed_sabak == '1') ? 'checked' : '' }} name="is_passed_sabak" value="1" >
+															Passed
+														</label>
+														<label style="display: inline-flex;align-items: center;gap:5px;" class="text-danger">
+															<input type="radio" required {{ ($result->is_passed_sabak == '0') ? 'checked' : '' }} name="is_passed_sabak" value="0" >
+															Failed
+														</label>
+													</div>
+												</div>
+												{{-- sabak part end here --}}
 
-											<div class="form-group">
-												<label class="label-control">Memorizing *</label>
-												<textarea name="memorizing" required class="form-control" rows="2" placeholder="Write...">{{ $result->memorizing }}</textarea>
+												
+												{{-- seven_sabak part start here --}}
+												<div class="card mb-4">
+													<div class="card-header bg-primary text-light">Seven Sabak</div>
+													<div class="card-body">
+														<table class="table table-bordered">
+															<thead>
+																<tr>
+																	<th>Juz</th>
+																	<th>Page qnty</th>
+																	<th width="10">
+																		<button  type="button" class="btn btn-success"  onclick="clone_function('seven_sabak')">+</button>
+																	</th>
+																</tr>
+															</thead>
+															<tbody id="seven_sabak">
+																@foreach($sabak as $key => $value)
+																	@if($value->sabak_type == 'seven_sabak' && ($value->is_homework != 1))
+																		<tr>
+																			<td>
+																				<input type="number" min="1" step="1" max="30" required value="{{ $value->juz }}" name="seven_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
+																			</td>
+
+																			<td>
+																				<input type="number" min="1" step="1" required value="{{ $value->page_qnty }}" name="seven_sabak_page_qnty[]"  class="form-control" placeholder="Write Page Number">
+																			</td>
+																			<td>
+																				<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
+																			</td>
+																		</tr>
+																	@endif
+																@endforeach
+															<tbody>
+														</table>
+													</div>
+													<div class="card-footer text-right">
+														<label style="display: inline-flex;align-items: center;gap:5px;" class="text-success">
+															<input type="radio" required {{ ($result->is_passed_seven_sabak == '1') ? 'checked' : '' }} name="is_passed_seven_sabak" value="1" >
+															Passed
+														</label>
+														&nbsp;&nbsp;
+														<label style="display: inline-flex;align-items: center;gap:5px;" class="text-danger">
+															<input type="radio" required {{ ($result->is_passed_seven_sabak == '0') ? 'checked' : '' }} name="is_passed_seven_sabak" value="0" >
+															Failed
+														</label>
+													</div>
+												</div>
+												{{-- seven_sabak part end here --}}
+
+												
+												{{-- revision part start here --}}
+												<div class="card mb-4">
+													<div class="card-header bg-success text-light">Rivision</div>
+													<div class="card-body">
+														<table class="table table-bordered">
+															<thead>
+																<tr>
+																	<th>Juz</th>
+																	<th>Page Number <small>(From)</small></th>
+																	<th>Page Number <small>(To)</small></th>
+																	<th width="10">
+																		<button  type="button" class="btn btn-success"  onclick="clone_function('rivision_sabak')">+</button>
+																	</th>
+																</tr>
+															</thead>
+															<tbody id="rivision_sabak">
+																@foreach($sabak as $key => $value)
+																	@if($value->sabak_type == 'rivision' && ($value->is_homework != 1))
+																		<tr>
+																			<td>
+																				<input type="number" min="1" step="1" max="30" required value="{{ $value->juz }}" name="rivision_juz[]" class="form-control" placeholder="Write Juz Number">
+																			</td>
+																			<td>
+																				<input type="number" min="1" step="1" required value="{{ $value->page_number }}" name="rivision_page_from[]"  class="form-control" placeholder="Write Page Number">
+																			</td>
+																			<td>
+																				<input type="number" min="1" step="1" required value="{{ $value->page_number_to }}" name="rivision_page_to[]"  class="form-control" placeholder="Write Page Number">
+																			</td>
+																			<td>
+																				<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
+																			</td>
+																		</tr>
+																	@endif
+																@endforeach
+															<tbody>
+														</table>
+													</div>
+													<div class="card-footer text-right">
+														<label style="display: inline-flex;align-items: center;gap:5px;" class="text-success">
+															<input type="radio" required {{ ($result->is_passed_rivision == '1') ? 'checked' : '' }} name="is_passed_rivision" value="1" >
+															Passed
+														</label>
+														&nbsp;&nbsp;
+														<label style="display: inline-flex;align-items: center;gap:5px;" class="text-danger">
+															<input type="radio" required {{ ($result->is_passed_rivision == '0') ? 'checked' : '' }} name="is_passed_rivision" value="0" >
+															Failed
+														</label>
+													</div>
+												</div>
+												{{-- revision part end here --}}
 											</div>
-											<div class="form-group">
-												<label class="label-control">Tajwid *</label>
-												<textarea name="tajwid" required class="form-control" rows="2" placeholder="Write...">{{ $result->tajwid }}</textarea>
-											</div>
-											<div class="form-group">
-												<label class="label-control">Handwriting *</label>
-												<textarea name="handwriting" required class="form-control" rows="2" placeholder="Write...">{{ $result->handwriting }}</textarea>
-											</div>
-										</div>
+										@endif
+
 									</div>
-								{{-- current sabak end --}}
+									{{-- current sabak end --}}	
 
 
-								{{-- homework sabak start --}}
+
+
+								  
+									{{-- home work sabak start --}}
 									<div class="card card-warning p-3 mb-3">
 										<div class="card-title text-danger">
 											Next Homework
 										</div>
+
 										<div>
-											<label class="label-control">{{ ucfirst(str_replace('_', ' ', $result->student_type)) }} <small>(Home work)</small> *</label>
-											<table class="table table-bordered">
-												<thead>
-													<tr>
-														<th>{{ ($result->student_type == 'qaidah') ? 'Page' : 'Sura' }}</th>
-														<th>Start (<small>{{ ($result->student_type == 'qaidah') ? 'Box' : 'Ayat' }}</small>)</th>
-														<th>End (<small>{{ ($result->student_type == 'qaidah') ? 'Box' : 'Ayat' }}</small>)</th>
-														<th width="10">
-															<button  type="button" class="btn btn-success"  onclick="clone_function('kalker_pora')">+</button>
-														</th>
-													</tr>
-												</thead>
-
-												<tbody id="kalker_pora">
-
-													@if(count($result->sabak))
-														@foreach($result->sabak as $ajker_sabak_key => $ajker_sabak_value)
-															@if($ajker_sabak_value->type == 'homework')
-																<tr>
-																	@if($result->student_type == 'qaidah')
+									  		{{-- sabak part start here --}}
+											<div class="card mb-4">
+												<div class="card-header bg-danger text-light">Sabak</div>
+												<div class="card-body">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th>Juz</th>
+																<th>Page Number</th>
+																<th>Line</th>
+																<th width="10">
+																	<button  type="button" class="btn btn-success"  onclick="clone_function('homework_sabak')">+</button>
+																</th>
+															</tr>
+														</thead>
+														<tbody id="homework_sabak">
+															@foreach($sabak as $key => $value)
+																@if($value->sabak_type == 'sabak' && ($value->is_homework == 1))
+																	<tr>
 																		<td>
-																			<input type="number" min="1" step="1" required name="home_work_page_or_sura[]" value="{{ $ajker_sabak_value->page_or_sura }}" class="form-control" placeholder="Write page number">
+																			<input type="number" min="1" step="1" max="30" required value="{{ $value->juz }}" name="homework_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
 																		</td>
-																	@elseif('quran')
+
 																		<td>
-																			<input type="text" list="quran_sura" required name="home_work_page_or_sura[]" value="{{ $ajker_sabak_value->page_or_sura }}" class="form-control" placeholder="Write sura name">
-																			<datalist id="quran_sura">
-																				@foreach(quran_suras() as $sura)
-																					<option value="{{ucfirst($sura)}}" />
-																				@endforeach
-																			</datalist>
+																			<input type="number" min="1" step="1" required value="{{ $value->page_number }}" name="homework_sabak_page[]"  class="form-control" placeholder="Write Page Number">
 																		</td>
-																	@else
 																		<td>
-																			<input type="text" list="juz_ammah_sura" required name="home_work_page_or_sura[]" value="{{ $ajker_sabak_value->page_or_sura }}" class="form-control" placeholder="Write sura name">
-																			<datalist id="juz_ammah_sura">
-																				@foreach(juz_amma_suras() as $sura)
-																					<option value="{{ucfirst($sura)}}" />
-																				@endforeach
-																			</datalist>
+																			<input type="number" min="1" step="1" required value="{{ $value->sabak_line }}" name="homework_sabak_line[]"  class="form-control" placeholder="Write Line Number">
 																		</td>
-																	@endif
-
-
-																	<td>
-																		<input type="number" min="1" step="1" required name="home_work_from[]"  value="{{ $ajker_sabak_value->from }}" class="form-control" placeholder="Write box number">
-																	</td>
-																	<td>
-																		<input type="number" min="1" step="1" required name="home_work_to[]"  value="{{ $ajker_sabak_value->to }}" class="form-control" placeholder="Write box number">
-																	</td>
-																	<td>
-																		<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
-																	</td>
-																</tr>
-															@endif
-														@endforeach
-													@endif
-
-												<tbody>
-											</table>
-
-											<div class="form-group">
-												<label class="label-control">Memorizing <small>(Home Work)</small> *</label>
-												<textarea name="home_work_memorizing" required class="form-control" rows="2" placeholder="Write...">{{ $result->home_work_memorizing }}</textarea>
+																		<td>
+																			<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
+																		</td>
+																	</tr>
+																@endif
+															@endforeach
+														<tbody>
+													</table>
+												</div>
 											</div>
-											<div class="form-group">
-												<label class="label-control">Tajwid <small>(Home Work)</small> *</label>
-												<textarea name="home_work_tajwid" required class="form-control" rows="2" placeholder="Write...">{{ $result->home_work_tajwid }}</textarea>
+											{{-- sabak part end here --}}
+
+											
+											{{-- seven_sabak part start here --}}
+											<div class="card mb-4">
+												<div class="card-header bg-primary text-light">Seven Sabak</div>
+												<div class="card-body">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th>Juz</th>
+																<th>Page qnty</th>
+																<th width="10">
+																	<button  type="button" class="btn btn-success"  onclick="clone_function('homework_seven_sabak')">+</button>
+																</th>
+															</tr>
+														</thead>
+														<tbody id="homework_seven_sabak">
+															@foreach($sabak as $key => $value)
+																@if($value->sabak_type == 'seven_sabak' && ($value->is_homework == 1))
+																	<tr>
+																		<td>
+																			<input type="number" min="1" step="1" max="30" required value="{{ $value->juz }}" name="homework_seven_sabak_juz[]" class="form-control" placeholder="Write Juz Number">
+																		</td>
+
+																		<td>
+																			<input type="number" min="1" step="1" required value="{{ $value->page_qnty }}" name="homework_seven_sabak_page_qnty[]"  class="form-control" placeholder="Write Page Number">
+																		</td>
+																		<td>
+																			<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
+																		</td>
+																	</tr>
+																@endif
+															@endforeach
+														<tbody>
+													</table>
+												</div>
 											</div>
-											<div class="form-group">
-												<label class="label-control">Handwriting <small>(Home Work)</small> *</label>
-												<textarea name="home_work_handwriting" required class="form-control" rows="2" placeholder="Write...">{{ $result->home_work_handwriting }}</textarea>
+											{{-- seven_sabak part end here --}}
+
+											
+											{{-- revision part start here --}}
+											<div class="card mb-4">
+												<div class="card-header bg-success text-light">Rivision</div>
+												<div class="card-body">
+													<table class="table table-bordered">
+														<thead>
+															<tr>
+																<th>Juz</th>
+																<th>Page Number <small>(From)</small></th>
+																<th>Page Number <small>(To)</small></th>
+																<th width="10">
+																	<button  type="button" class="btn btn-success"  onclick="clone_function('homework_rivision_sabak')">+</button>
+																</th>
+															</tr>
+														</thead>
+														<tbody id="homework_rivision_sabak">
+															@foreach($sabak as $key => $value)
+																@if($value->sabak_type == 'rivision' && ($value->is_homework == 1))
+																	<tr>
+																		<td>
+																			<input type="number" min="1" step="1" max="30" required value="{{ $value->juz }}" name="homework_rivision_juz[]" class="form-control" placeholder="Write Juz Number">
+																		</td>
+																		<td>
+																			<input type="number" min="1" step="1" required value="{{ $value->page_number }}" name="homework_rivision_page_from[]"  class="form-control" placeholder="Write Page Number">
+																		</td>
+																		<td>
+																			<input type="number" min="1" step="1" required value="{{ $value->page_number_to }}" name="homework_rivision_page_to[]"  class="form-control" placeholder="Write Page Number">
+																		</td>
+																		<td>
+																			<button type="button" class="btn btn-danger" onclick="remove_tr(this)">x</button>
+																		</td>
+																	</tr>
+																@endif
+															@endforeach
+														<tbody>
+													</table>
+												</div>
 											</div>
+											{{-- revision part end here --}}
 										</div>
 									</div>
-								{{-- homework sabak end --}}
+									{{-- home work sabak end --}}
 
+								</div>
 
 								<div class="form-group">
 									<label class="label-control">Remark (<small>optional</small>)</label>
 									<textarea name="remark" class="form-control" rows="5">{{ $result->remark }}</textarea>
 								</div>
 
-
 								<div class="form-group">
 									<label class="label-control">Star achieved today (<small>optional</small>)</label>
 									<div class="form-group">
 										<label class="text-danger">
-											<input type="radio" name="star" {{ ($result->star == 0) ? 'checked' : '' }} value="0" required> 0 star &nbsp;
+											<input type="radio" {{ ($result->star == 0) ? 'checked' : '' }} name="star" value="0" required> 0 star &nbsp;
 										</label>
 										<label class="text-primary">
-											<input type="radio" name="star" {{ ($result->star == 1) ? 'checked' : '' }} value="1" required> 1 star &nbsp;
+											<input type="radio" {{ ($result->star == 1) ? 'checked' : '' }} name="star" value="1" required> 1 star &nbsp;
 										</label>
 										<label class="text-success">
-											<input type="radio" name="star" {{ ($result->star == 2) ? 'checked' : '' }} value="2" required>
+											<input type="radio" {{ ($result->star == 2) ? 'checked' : '' }} name="star" value="2" required>
 											2 star
 										</label>
 									</div>
@@ -279,14 +405,10 @@
 						</div>
 						
 					</form>
+				@endif
 
-				</div>
 			</div>
-		@else
-			<div class="alert alert-warning">
-				No result found
-			</div>
-		@endif
+		</div>
     </section>
 @endsection
 
@@ -294,11 +416,14 @@
 
 @push('css')
   	<style>
+  		th{
+  			white-space: nowrap;
+  		}
   		#report_container .card.card-success{
-  			background-color: #fafff7;
+  			background-color: #ecffe1;
   		}
   		#report_container .card.card-warning{
-  			background-color: #fff7f7;
+  			background-color: #ffecec;
   		}
   		#report_container .card .card-title{
   			font-size: 17px !important;
@@ -310,7 +435,7 @@
 		.cke_contents.cke_reset{
 			height: 400px !important;
 		}
-
+		
 		#my_loader{
 			display: none;
 		}
@@ -319,42 +444,8 @@
 
 
 @push('js')
-	<script>
-		let student_type = "{{ $result->student_type }}";
-		let student_id   = "{{ $result->student_id }}";
 
-		window.addEventListener('load', ()=>
-		{
-			getStudents(student_type, student_id);
-		});
-
-		async function getStudents(studentType, student_id)
-		{
-			let url 		   = "{{ route('admin.getStudents') }}/"+studentType;
-			let select_student = document.getElementById('select_student');
-			let my_loader 	   = document.getElementById('my_loader');
-
-			my_loader.style.display = 'block';
-			
-
-			let response = await fetch(url);
-			let data     = await response.json();
-			let options  = `<option value=''>-please select-</option>`;
-
-
-			for([key, value] of Object.entries(data))
-			{
-				let isSelected = (student_id == value.id) ? 'selected' : '';
-
-				options += `<option ${isSelected} value="${value.id}">${value.name}</option>`;
-			}
-
-			select_student.innerHTML = options;
-			my_loader.style.display  = '';
-		}
-	</script>
-
-
+	{{-- student handler start --}}
 	<script>
 		let report_container = document.getElementById('report_container');
 		let my_loader 	     = document.getElementById('my_loader');
@@ -366,7 +457,43 @@
 				report_container.style.display = '';
 			}
 		}
+
+		/* **
+		/* students authentication verification
+		/* verify that this verification already taken or not 
+		* **/
+		async function verify_student_atendance(x)
+		{
+			
+			let student_id = x.value;
+
+			if(student_id.length>0)
+			{
+				my_loader.style.display = 'block';
+				
+				let response = await fetch("{{route('admin.attendance_verifications')}}/"+student_id);
+				let data     = await response.json();
+				
+				if(response.ok)
+				{
+					my_loader.style.display = 'none';
+				}
+
+				if(JSON.parse(data))
+				{
+					report_container.style.display = 'none';
+					alert("Report already created!");
+				}else{
+					report_container.style.display = '';
+				}
+			}else{
+				alert("Please select at least one student!");
+			}
+		}
 	</script>
+	{{-- student handler end --}}
+
+
 
     {{-- dynamic table raw add and remove start --}}
 	    <script>
@@ -401,8 +528,8 @@
 						item_container.appendChild(clone);
 
 						var lastChild_children = item_container.lastElementChild.children,
-							_length            = lastChild_children.length-1,
-							i                  = 0;
+							_length              = lastChild_children.length-1,
+							i                    = 0;
 
 						for(i; i<_length; i++){
 							lastChild_children[i].children[0].value='';

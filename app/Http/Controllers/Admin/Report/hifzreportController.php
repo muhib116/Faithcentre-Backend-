@@ -33,14 +33,14 @@
         /*all image in report start ___________________________________*/
         public function index()
         {
-            $this->data['rows'] = DB::table('reports')
-                                ->leftJoin('students', 'reports.student_id', 'students.id')
-                                ->leftJoin('admins', 'reports.uploader_id', 'admins.id')
+            $this->data['rows'] = DB::table('hifz_reports')
+                                ->leftJoin('students', 'hifz_reports.student_id', 'students.id')
+                                ->leftJoin('admins', 'hifz_reports.uploader_id', 'admins.id')
                                 ->where([
-                                    'reports.status'=>1
+                                    'hifz_reports.status'=>1
                                 ])
                                 ->orderBy('id', 'desc')
-                                ->select('reports.*', 'students.name as student_name', 'admins.name as teacher_name')
+                                ->select('hifz_reports.*', 'students.name as student_name', 'admins.name as teacher_name')
                                 ->get();
 
             return view('backend.pages.hifz_report.all')->with($this->data);
@@ -57,26 +57,53 @@
 
 
 
-        /*save report image to database start _____________________________________*/
+        /*save report data to database start _____________________________________*/
         public function store(Request $request)
         {
             $request->validate([
-                'student_id'     => 'required',
-                'student_type'   => 'required',
-                'student_status' => 'required',
-                'page_or_sura'   => 'required',
-                'from'           => 'required',
-                'to'             => 'required',
-                'memorizing'     => 'required',
-                'tajwid'         => 'required',
-                'handwriting'    => 'required',
-                'home_work_page_or_sura'=> 'required',
-                'home_work_from'        => 'required',
-                'home_work_to'          => 'required',
-                'home_work_memorizing'  => 'required',
-                'home_work_tajwid'      => 'required',
-                'home_work_handwriting' => 'required',
+                'date'                  => 'required',
+                'student_id'            => 'required',
+                'student_status'        => 'required',
+                'star'                  => 'required',
+                'is_passed_sabak'       => 'required',
+                'is_passed_seven_sabak' => 'required',
+                'is_passed_rivision'    => 'required',
+
+                'sabak_juz'             => 'required',
+                'sabak_page'            => 'required',
+                'sabak_line'            => 'required',
+
+                'seven_sabak_juz'       => 'required',
+                'seven_sabak_page_qnty' => 'required',
+
+                'rivision_juz'          => 'required',
+                'rivision_page_from'    => 'required',
+                'rivision_page_to'      => 'required',
+     
+                'homework_sabak_juz'             => 'required',
+                'homework_sabak_page'            => 'required',
+                'homework_sabak_line'            => 'required',
+
+                'homework_seven_sabak_juz'       => 'required',
+                'homework_seven_sabak_page_qnty' => 'required',
+
+                'homework_rivision_juz'          => 'required',
+                'homework_rivision_page_from'    => 'required',
+                'homework_rivision_page_to'      => 'required'
             ]);
+
+
+            /*attendent existance check start*/
+                $cond = [
+                    'student_id' => $request->student_id,
+                    'date'       => isset($request->date) ? $request->date : date('Y-m-d')
+                ];
+
+                if(\DB::table('hifz_reports')->where($cond)->exists()){
+                    set_msg("This student's report already created !", 'warning');
+                    return redirect()->back();
+                }
+            /*attendent existance check end*/
 
 
             $data = [
@@ -86,16 +113,11 @@
                 'uploader_id'    => \Auth::id(),
 
                 "student_id"     => $request->student_id,
-                "student_type"   => $request->student_type,
                 "student_status" => $request->student_status,
 
-                "memorizing"     => $request->memorizing,
-                "tajwid"         => $request->tajwid,
-                "handwriting"    => $request->handwriting,
-
-                "home_work_memorizing"  => $request->home_work_memorizing,
-                "home_work_tajwid"      => $request->home_work_tajwid,
-                "home_work_handwriting" => $request->home_work_handwriting,
+                "is_passed_sabak"       => $request->is_passed_sabak,
+                "is_passed_seven_sabak" => $request->is_passed_seven_sabak,
+                "is_passed_rivision"    => $request->is_passed_rivision,
 
                 "remark"                => $request->remark,
                 "star"                  => $request->star
@@ -103,219 +125,326 @@
             
 
             /*now insert data into database*/
-            if($report_id = DB::table('reports')->insertGetId($data))
-            {
-                $page_or_sura = $request->page_or_sura;
-                $from         = $request->from;
-                $to           = $request->to;
-
-                $home_work_page_or_sura = $request->home_work_page_or_sura;
-                $home_work_from         = $request->home_work_from;
-                $home_work_to           = $request->home_work_to;
-
-                /*add current sabak start*/
-                if(count($page_or_sura))
+                if($report_id = DB::table('hifz_reports')->insertGetId($data))
                 {
-                    foreach($page_or_sura as $index => $value)
-                    {
-                        $sabak_data = [
-                            'report_id'    => $report_id,
-                            'uploader_id'  => \Auth::id(),
-                            "student_id"   => $request->student_id,
+                    // today's sabak
+                    $sabak_status       = $this->add_sabak($request, $report_id,'sabak', 0);
+                    $seven_sabak_status = $this->add_seven_sabak($request, $report_id,'seven_sabak', 0);
+                    $rivision_status    = $this->add_rivision($request, $report_id,'rivision', 0);
 
-                            'page_or_sura' => $page_or_sura[$index],
-                            'from'         => $from[$index],
-                            'to'           => $to[$index]
-                        ];
+                    // homework sabak
+                    $homework_sabak_status       = $this->add_sabak($request, $report_id,'sabak', 1);
+                    $homework_seven_sabak_status = $this->add_seven_sabak($request, $report_id,'seven_sabak', 1);
+                    $homework_rivision_status    = $this->add_rivision($request, $report_id,'rivision', 1);
 
-                        \DB::table('sabak_report')->insert($sabak_data);
+
+                    if(
+                        $sabak_status && $seven_sabak_status && $rivision_status && 
+                        $homework_sabak_status && $homework_seven_sabak_status && $homework_rivision_status
+                    ){
+                        set_msg("Report Information Uploaded Successfully !", 'success');
+                    }else{
+                        set_msg("Report not generated correctly !", 'danger');
+                        $this->cleanupReportData($report_id);
                     }
+
+                }else{
+                    set_msg("Report Information Not Uploaded !", 'warning');
                 }
-                /*add current sabak end*/
+            /*work with today's sabak end--------------------*/
 
-
-                /*add homework sabak start*/
-                if(count($home_work_page_or_sura))
-                {
-                    foreach($home_work_page_or_sura as $index => $value)
-                    {
-                        $sabak_data = [
-                            'report_id'    => $report_id,
-                            'uploader_id'  => \Auth::id(),
-                            "student_id"   => $request->student_id,
-
-                            'page_or_sura' => $home_work_page_or_sura[$index],
-                            'from'         => $home_work_from[$index],
-                            'to'           => $home_work_to[$index],
-                            'type'         => 'homework'
-                        ];
-
-                        \DB::table('sabak_report')->insert($sabak_data);
-                    }
-                }
-                /*add homework sabak end*/
-
-
-                set_msg("Report Information Uploaded Successfully !", 'success');
-            }else{
-                set_msg("Report Information Not Uploaded !", 'warning');
-            }
 
             return redirect()->back();
         }
-        /*save report image to database end _____________________________________*/
+        /*save report data to database end _____________________________________*/
+
+
+
+
+
+
+
+
+
 
 
 
         /*report image update start ________________________________________________*/
-        public function edit($id)
-        {
-            $reports = DB::table('reports')
-                        ->where(['id'=>$id, 'status'=>1])
-                        ->first();
-
-            if($reports)
+            public function edit($id)
             {
-                $sabak_data = DB::table('sabak_report')
-                            ->where(['report_id'=>$id])
-                            ->get();
+                $reports = DB::table('hifz_reports')
+                            ->where(['id'=>$id, 'status'=>1])
+                            ->first();
 
-                $reports->sabak = $sabak_data;
+                if($reports)
+                {
+                    $sabak_data = DB::table('hifz_sabak_report')
+                                    ->where(['report_id'=>$id])
+                                    ->get();
+
+                    $reports->sabak = $sabak_data;
+                }
+
+                $this->data['result'] = $reports;
+
+                return view('backend.pages.hifz_report.edit')->with($this->data);
             }
-
-            $this->data['result'] = $reports;
-
-            return view('backend.pages.hifz_report.edit')->with($this->data);
-        }
         /*report image update end ________________________________________________*/
 
 
 
         /*report image update processing start ________________________________________________*/
-        public function edit_process(Request $request, $id)
+        public function edit_process(Request $request, $report_id)
         {
             $request->validate([
-                'student_id'     => 'required',
-                'student_type'   => 'required',
-                'student_status' => 'required',
-                'page_or_sura'   => 'required',
-                'from'           => 'required',
-                'to'             => 'required',
-                'memorizing'     => 'required',
-                'tajwid'         => 'required',
-                'handwriting'    => 'required',
-                'home_work_page_or_sura'=> 'required',
-                'home_work_from'        => 'required',
-                'home_work_to'          => 'required',
-                'home_work_memorizing'  => 'required',
-                'home_work_tajwid'      => 'required',
-                'home_work_handwriting' => 'required',
+                'date'                  => 'required',
+                'student_id'            => 'required',
+                'student_status'        => 'required',
+                'star'                  => 'required',
+                'is_passed_sabak'       => 'required',
+                'is_passed_seven_sabak' => 'required',
+                'is_passed_rivision'    => 'required',
+
+                'sabak_juz'         => 'required',
+                'sabak_page'        => 'required',
+                'sabak_line'        => 'required',
+
+                'seven_sabak_juz'       => 'required',
+                'seven_sabak_page_qnty' => 'required',
+
+                'rivision_juz'      => 'required',
+                'rivision_page_from'=> 'required',
+                'rivision_page_to'  => 'required',
+     
+                'homework_sabak_juz'         => 'required',
+                'homework_sabak_page'        => 'required',
+                'homework_sabak_line'        => 'required',
+
+                'homework_seven_sabak_juz'       => 'required',
+                'homework_seven_sabak_page_qnty' => 'required',
+
+                'homework_rivision_juz'      => 'required',
+                'homework_rivision_page_from'=> 'required',
+                'homework_rivision_page_to'  => 'required'
             ]);
 
             $data = [
-                'date'           => $request->date,
+                'date'           => isset($request->date) ? $request->date : date('Y-m-d'),
+                'time'           => date("H:i:s"),
                 'updated_at'     => date("Y-m-d H:i:s"),
                 'uploader_id'    => \Auth::id(),
+
                 "student_id"     => $request->student_id,
-
-                "student_type"   => $request->student_type,
                 "student_status" => $request->student_status,
-                
 
-                "memorizing"     => $request->memorizing,
-                "tajwid"         => $request->tajwid,
-                "handwriting"    => $request->handwriting,
-                
-
-                "home_work_memorizing"  => $request->home_work_memorizing,
-                "home_work_tajwid"      => $request->home_work_tajwid,
-                "home_work_handwriting" => $request->home_work_handwriting,
+                "is_passed_sabak"       => $request->is_passed_sabak,
+                "is_passed_seven_sabak" => $request->is_passed_seven_sabak,
+                "is_passed_rivision"    => $request->is_passed_rivision,
 
                 "remark"                => $request->remark,
                 "star"                  => $request->star
             ];
-
             
-            /*now update data into database*/
-            if(DB::table('reports')->where(['id'=>$id])->update($data))
-            {
 
-                // delete sabak report according to report id
-                \DB::table('sabak_report')->where(['report_id'=>$id])->delete();
-
-
-                $page_or_sura = $request->page_or_sura;
-                $from         = $request->from;
-                $to           = $request->to;
-
-                $home_work_page_or_sura = $request->home_work_page_or_sura;
-                $home_work_from         = $request->home_work_from;
-                $home_work_to           = $request->home_work_to;
-
-                /*add current sabak start*/
-                if(count($page_or_sura))
+            /*now insert data into database*/
+                if(DB::table('hifz_reports')->where(['id'=>$report_id])->update($data))
                 {
-                    foreach($page_or_sura as $index => $value)
-                    {
-                        $sabak_data = [
-                            'report_id'    => $id, //$id is report id
-                            'uploader_id'  => \Auth::id(),
-                            "student_id"   => $request->student_id,
+                    // delete sabak report according to report_id
+                    \DB::table('hifz_sabak_report')->where(['report_id'=>$report_id])->delete();
 
-                            'page_or_sura' => $page_or_sura[$index],
-                            'from'         => $from[$index],
-                            'to'           => $to[$index]
-                        ];
+                    // today's sabak
+                    $sabak_status       = $this->add_sabak($request, $report_id,'sabak', 0);
+                    $seven_sabak_status = $this->add_seven_sabak($request, $report_id,'seven_sabak', 0);
+                    $rivision_status    = $this->add_rivision($request, $report_id,'rivision', 0);
 
-                        \DB::table('sabak_report')->insert($sabak_data);
+                    // homework sabak
+                    $homework_sabak_status       = $this->add_sabak($request, $report_id,'sabak', 1);
+                    $homework_seven_sabak_status = $this->add_seven_sabak($request, $report_id,'seven_sabak', 1);
+                    $homework_rivision_status    = $this->add_rivision($request, $report_id,'rivision', 1);
+
+                    if(
+                        $sabak_status && $seven_sabak_status && $rivision_status && 
+                        $homework_sabak_status && $homework_seven_sabak_status && $homework_rivision_status
+                    ){
+                        set_msg("Report Information Updated Successfully !", 'success');
+                    }else{
+                        $this->cleanupReportData($report_id);
                     }
+
+                }else{
+                    set_msg("Report Information Not Updated !", 'warning');
                 }
-                /*add current sabak end*/
+            /*work with today's sabak end--------------------*/
 
-
-                /*add homework sabak start*/
-                if(count($home_work_page_or_sura))
-                {
-                    foreach($home_work_page_or_sura as $index => $value)
-                    {
-                        $sabak_data = [
-                            'report_id'    => $id, //$id is report id
-                            'uploader_id'  => \Auth::id(),
-                            "student_id"   => $request->student_id,
-
-                            'page_or_sura' => $home_work_page_or_sura[$index],
-                            'from'         => $home_work_from[$index],
-                            'to'           => $home_work_to[$index],
-                            'type'         => 'homework'
-                        ];
-
-                        \DB::table('sabak_report')->insert($sabak_data);
-                    }
-                }
-                /*add homework sabak end*/
-
-
-                set_msg("Report Information Updated Successfully !", 'success');
-            }else{
-                set_msg("Report Information Not Updated !", 'warning');
-            }
 
             return redirect()->back();
         }
         /*report image update processing end ________________________________________________*/
 
 
+
+
+        /*sabak report halper start===============================*/
+            private function add_sabak($request, $report_id, $sabak_type, $is_homework)
+            {
+                /*add sabak data start*/
+
+                    /*make ready data start*/
+                    if(!$is_homework)
+                    {
+                        $sabak_juz  = $request->sabak_juz;
+                        $sabak_page = $request->sabak_page;
+                        $sabak_line = $request->sabak_line;
+                    }else{
+                        $sabak_juz  = $request->homework_sabak_juz;
+                        $sabak_page = $request->homework_sabak_page;
+                        $sabak_line = $request->homework_sabak_line;
+                    }
+                    /*make ready data end*/
+
+
+                    $sabak_data = [
+                        'uploader_id' => \Auth::id(),
+                        "student_id"  => $request->student_id,
+                        "report_id"   => $report_id,
+                        "is_homework" => $is_homework,
+                        'sabak_type'  => $sabak_type
+                    ];
+
+
+                    $insertStatus = false;
+
+                    for ($i = 0; $i<count($sabak_juz); $i++)
+                    {
+                        $sabak_data['juz']         = $sabak_juz[$i];
+                        $sabak_data['page_number'] = $sabak_page[$i];
+                        $sabak_data['sabak_line']  = $sabak_line[$i];
+
+                        if(DB::table('hifz_sabak_report')->insert($sabak_data))
+                        {
+                            $insertStatus = true;
+                        }else{
+                            set_msg("Something went wrong with ".($is_homework) ? 'homework' : 'today\'s'." sabak data !", 'danger');
+                            return;
+                        }
+                    }
+
+                    return $insertStatus;
+                /*add sabak data end*/
+            }
+
+            private function add_seven_sabak($request, $report_id, $sabak_type, $is_homework)
+            {
+                /*add seven sabak data start*/
+                    if(!$is_homework)
+                    {
+                        $seven_sabak_juz       = $request->seven_sabak_juz;
+                        $seven_sabak_page_qnty = $request->seven_sabak_page_qnty;
+                    }else{
+                        $seven_sabak_juz       = $request->homework_seven_sabak_juz;
+                        $seven_sabak_page_qnty = $request->homework_seven_sabak_page_qnty;
+                    }
+
+
+                    $sabak_data = [
+                        'uploader_id' => \Auth::id(),
+                        "student_id"  => $request->student_id,
+                        "report_id"   => $report_id,
+                        "is_homework" => $is_homework,
+                        'sabak_type'  => $sabak_type
+                    ];
+
+                    $insertStatus = false;
+
+                    for ($i = 0; $i<count($seven_sabak_juz); $i++)
+                    {
+                        $sabak_data['juz']       = $seven_sabak_juz[$i];
+                        $sabak_data['page_qnty'] = $seven_sabak_page_qnty[$i];
+
+                        if(DB::table('hifz_sabak_report')->insert($sabak_data))
+                        {
+                            $insertStatus = true;
+                        }else{
+                            set_msg("Something went wrong with ".($is_homework) ? 'homework' : 'today\'s'." seven sabak data !", 'danger');
+                            return $insertStatus;
+                        }
+                    }
+
+                    return $insertStatus;
+                /*add sabak data end*/
+            }
+
+            private function add_rivision($request, $report_id, $sabak_type, $is_homework)
+            {
+                /*add seven rivision data start*/
+                    if(!$is_homework)
+                    {
+                        $rivision_juz       = $request->rivision_juz;
+                        $rivision_page_from = $request->rivision_page_from;
+                        $rivision_page_to   = $request->rivision_page_to;
+                    }else{
+                        $rivision_juz       = $request->homework_rivision_juz;
+                        $rivision_page_from = $request->homework_rivision_page_from;
+                        $rivision_page_to   = $request->homework_rivision_page_to;
+                    }
+
+
+                    $rivision_data = [
+                        'uploader_id' => \Auth::id(),
+                        "student_id"  => $request->student_id,
+                        "report_id"   => $report_id,
+                        "is_homework" => $is_homework,
+                        'sabak_type'  => $sabak_type
+                    ];
+
+                    $insertStatus = false;
+
+                    for ($i = 0; $i<count($rivision_juz); $i++)
+                    {
+                        $rivision_data['juz']            = $rivision_juz[$i];
+                        $rivision_data['page_number']    = $rivision_page_from[$i];
+                        $rivision_data['page_number_to'] = $rivision_page_to[$i];
+
+                        if(DB::table('hifz_sabak_report')->insert($rivision_data))
+                        {
+                            $insertStatus = true;
+                        }else{
+                            set_msg("Something went wrong with ".($is_homework) ? 'homework' : 'today\'s'." rivision data !", 'danger');
+                            return $insertStatus;
+                        }
+                    }
+
+                    return $insertStatus;
+                /*add rivision data end*/
+            }
+
+
+            private function cleanupReportData($report_id)
+            {
+                // this method work when something went worng with any hifz report
+                // this method delete all data to clean report, then redirect back
+
+                \DB::table('hifz_reports')->where(['id'=>$report_id])->delete();
+                \DB::table('hifz_sabak_report')->where(['report_id'=>$report_id])->delete();
+
+                return redirect()->back();
+            }
+        /*sabak report halper start===============================*/
+
+
+
+
         /*report image in trash start ________________________________________________*/
         public function trash_list()
         {
-            $this->data['rows'] = DB::table('reports')
-                                ->leftJoin('students', 'reports.student_id', 'students.id')
-                                ->leftJoin('admins', 'reports.uploader_id', 'admins.id')
+            $this->data['rows'] = DB::table('hifz_reports')
+                                ->leftJoin('students', 'hifz_reports.student_id', 'students.id')
+                                ->leftJoin('admins', 'hifz_reports.uploader_id', 'admins.id')
                                 ->where([
-                                    'reports.status'=>0
+                                    'hifz_reports.status'=>0
                                 ])
                                 ->orderBy('id', 'desc')
-                                ->select('reports.*', 'students.name as student_name', 'admins.name as teacher_name')
+                                ->select('hifz_reports.*', 'students.name as student_name', 'admins.name as teacher_name')
                                 ->get();
                                     
             return view('backend.pages.hifz_report.trash')->with($this->data);
@@ -326,7 +455,7 @@
 
         /*report image trash processing start ________________________________________________*/
         public function trash(Request $request,$id){
-            $delete_status = DB::table('reports')
+            $delete_status = DB::table('hifz_reports')
                              ->where(['id'=>$id])
                              ->update(['status'=>0]);
 
@@ -343,7 +472,7 @@
 
         /*report image restore processing start ________________________________________________*/
         public function restore(Request $request,$id){
-            $delete_status = DB::table('reports')
+            $delete_status = DB::table('hifz_reports')
                              ->where(['id'=>$id])
                              ->update(['status'=>1]);
             
@@ -360,15 +489,20 @@
 
         /*report image delete processing start ________________________________________________*/
         public function delete(Request $request,$id){
-            $old_data      = DB::table('reports')
+            $old_data      = DB::table('hifz_reports')
                                 ->where(['id'=>$id])
                                 ->first();
 
-            $delete_status = DB::table('reports')
+            $delete_status = DB::table('hifz_reports')
                              ->where(['id'=>$id])
                              ->delete();
+
             
-            if($delete_status){
+            if($delete_status)
+            {
+                // delete sabak report according to report_id
+                \DB::table('hifz_sabak_report')->where(['report_id'=>$id])->delete();
+
                 set_msg("Report Permanently Deleted From Trash Successfully !", 'success');
             }else{
                 set_msg("Report Not Permanently Deleted From Trash !", 'warning');
@@ -388,7 +522,7 @@
                 ['status', '=', 1],
             ];
 
-            $report_data = DB::table('reports');
+            $report_data = DB::table('hifz_reports');
 
 
             if(isset($_GET['filter_data']))
@@ -473,7 +607,7 @@
                 [$fieldName, '=', $id]
             ];
 
-            $report_data = DB::table('reports');
+            $report_data = DB::table('hifz_reports');
 
 
             if(isset($_GET['filter_data']))
@@ -577,7 +711,7 @@
         function attendance_verifications($student_id)
         {
             $data   = date('Y-m-d');
-            $result = \DB::table('reports')
+            $result = \DB::table('hifz_reports')
                         ->where([
                             "date"       => $data,
                             "student_id" => $student_id
@@ -589,22 +723,6 @@
             }
 
             return json_encode('0');
-        }
-
-
-        public function getStudents($student_type)
-        {
-
-            $students = \DB::table('students')
-                            ->where([
-                                'status'=>1,
-                                'type'  => $student_type
-                            ])
-                            ->orderBy('name', 'asc')
-                            ->select('id', 'name', 'type')
-                            ->get()->toJson();
-
-            return $students;
         }
         /*ajax request process end*/
     }

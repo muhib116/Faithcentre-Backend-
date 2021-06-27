@@ -27,7 +27,6 @@
 							<th width="20">Date/Time</th>
 							<th>Teacher Name</th>
 							<th>Student Name</th>
-							<th>Student Type</th>
 							<th>Student Status</th>
 							<th>Star</th>
 							<th style="width:10px">Options</th>
@@ -44,7 +43,6 @@
 								</td>
 								<td>{{ ucwords($value->teacher_name) }}</td>
 								<td>{{ ucwords($value->student_name) }}</td>
-								<td>{{ ucwords($value->student_type) }}</td>
 								<td>{{ ucwords($value->student_status) }}</td>
 								<td>{{ $value->star }}</td>
 								<td>

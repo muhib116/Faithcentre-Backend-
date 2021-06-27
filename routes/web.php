@@ -73,6 +73,7 @@
 				Route::get('restor-report/{id?}', 'reportController@restore')->name('admin.restore_report');
 				
 				Route::get('delete-report/{id?}', 'reportController@delete')->name('admin.delete_report');
+
 				Route::get('overview', 'reportController@overview')->name('admin.overview_report');
 				Route::get('overview/single/{type?}/{id?}', 'reportController@single_overview')->name('admin.single_overview');
 
@@ -98,13 +99,13 @@
 				Route::get('restor-hifzreport/{id?}', 'hifzreportController@restore')->name('admin.restore_hifzreport');
 				
 				Route::get('delete-hifzreport/{id?}', 'hifzreportController@delete')->name('admin.delete_hifzreport');
+
 				Route::get('hifz-overview', 'hifzreportController@overview')->name('admin.overview_hifzreport');
 				Route::get('hifz-overview/single/{type?}/{id?}', 'hifzreportController@single_overview')->name('admin.hifz_single_overview');
 
 				
 				// for ajax request route
 				Route::get('new-hifzreport/attendance/verifications/{student_id?}', 'hifzreportController@attendance_verifications')->name('admin.attendance_verifications');
-				Route::get('hifzreport/getStudents/{student_type?}', 'hifzreportController@getStudents')->name('admin.getStudents');
 			});
 		/*hifzreport routes end*/
 		

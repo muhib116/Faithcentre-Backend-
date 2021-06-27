@@ -78,6 +78,19 @@
             ]);
 
 
+            /*attendent existance check start*/
+                $cond = [
+                    'student_id' => $request->student_id,
+                    'date'       => isset($request->date) ? $request->date : date('Y-m-d')
+                ];
+
+                if(\DB::table('reports')->where($cond)->exists()){
+                    set_msg("This student's report already created !", 'warning');
+                    return redirect()->back();
+                }
+            /*attendent existance check end*/
+
+
             $data = [
                 'date'           => isset($request->date) ? $request->date : date('Y-m-d'),
                 'time'           => date("H:i:s"),
@@ -367,7 +380,11 @@
                              ->where(['id'=>$id])
                              ->delete();
             
-            if($delete_status){
+            if($delete_status)
+            {
+                // delete sabak report according to report_id
+                \DB::table('sabak_report')->where(['report_id'=>$id])->delete();
+
                 set_msg("Report Permanently Deleted From Trash Successfully !", 'success');
             }else{
                 set_msg("Report Not Permanently Deleted From Trash !", 'warning');
